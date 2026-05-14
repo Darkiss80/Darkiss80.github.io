@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ТОЭ — Тест по Теоретическим Основам Электротехники</title>
+    <title>ТОЭ — Шпаргалка (Правильные ответы)</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Roboto+Mono:wght@400;500&display=swap');
-        
-        :root {
-            --primary: #2563eb;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap');
         
         * {
             margin: 0;
@@ -19,7 +15,7 @@
         
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            background: linear-gradient(135deg, #f1f5f9 0%, #e0f2fe 100%);
             color: #1e2937;
             line-height: 1.6;
             padding: 20px;
@@ -30,7 +26,7 @@
             margin: 0 auto;
             background: white;
             border-radius: 16px;
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
             overflow: hidden;
         }
         
@@ -42,290 +38,283 @@
         }
         
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             margin-bottom: 8px;
         }
         
         .subtitle {
+            font-size: 1.2rem;
             opacity: 0.95;
-            font-size: 1.1rem;
         }
         
-        .quiz-container {
+        .content {
             padding: 2rem;
         }
         
-        .question-card {
+        .question {
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.8rem;
-            transition: all 0.3s ease;
+            border-left: 5px solid #2563eb;
+            padding: 1.4rem;
+            margin-bottom: 1.6rem;
+            border-radius: 0 12px 12px 0;
         }
         
-        .question-card:hover {
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            transform: translateY(-2px);
+        .q-number {
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
         }
         
-        .question-number {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 9999px;
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 500;
             margin-bottom: 12px;
         }
         
-        .question-text {
-            font-size: 1.15rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            color: #1e2937;
-        }
-        
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .option {
-            display: flex;
-            align-items: center;
-            padding: 12px 16px;
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .option:hover {
-            border-color: #60a5fa;
-            background: #f0f9ff;
-        }
-        
-        .option input[type="radio"] {
-            margin-right: 12px;
-            accent-color: var(--primary);
-        }
-        
-        .result {
-            display: none;
-            margin-top: 30px;
-            padding: 20px;
+        .answer {
             background: #ecfdf5;
-            border: 2px solid #10b981;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: 600;
+            border: 2px solid #34d399;
             color: #065f46;
-        }
-        
-        button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px 32px;
-            font-size: 1.1rem;
+            padding: 14px 18px;
+            border-radius: 10px;
             font-weight: 600;
-            border-radius: 9999px;
-            cursor: pointer;
-            margin: 20px auto;
-            display: block;
-            transition: all 0.3s;
-        }
-        
-        button:hover {
-            background: #1d4ed8;
-            transform: scale(1.05);
+            font-size: 1.1rem;
         }
         
         .footer {
             text-align: center;
-            padding: 1.5rem;
+            padding: 1.8rem;
             background: #f1f5f9;
             color: #64748b;
             font-size: 0.95rem;
         }
         
-        .correct {
-            border-color: #34d399 !important;
-            background: #f0fdf4 !important;
+        .mark {
+            display: inline-block;
+            background: #34d399;
+            color: white;
+            font-size: 0.85rem;
+            padding: 2px 10px;
+            border-radius: 9999px;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Тест по ТОЭ</h1>
-            <p class="subtitle">Теоретические основы электротехники</p>
+            <h1>ТОЭ — Шпаргалка</h1>
+            <p class="subtitle">Правильные ответы • Теоретические основы электротехники</p>
         </header>
         
-        <div class="quiz-container" id="quiz">
-            <!-- Вопросы будут вставлены через JavaScript -->
+        <div class="content">
+
+            <div class="question">
+                <div class="q-number">1.</div>
+                <div class="q-text">Какой тип проводимости у металлов?</div>
+                <div class="answer">Электронная проводимость</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">2.</div>
+                <div class="q-text">Какой закон отражает сохранение энергии в цепи?</div>
+                <div class="answer">Баланс мощностей</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">3.</div>
+                <div class="q-text">Как называется совокупность векторов ЭДС, напряжений и токов, изображённых в общей системе координат?</div>
+                <div class="answer">Векторная диаграмма</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">4.</div>
+                <div class="q-text">Как называется значение синусоидальной функции в любой момент времени?</div>
+                <div class="answer">Мгновенное значение</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">5.</div>
+                <div class="q-text">Чему равно среднее арифметическое значение величины за полпериода?</div>
+                <div class="answer">2/π U<sub>m</sub></div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">6.</div>
+                <div class="q-text">Какая величина характеризует напряжение в данный момент времени?</div>
+                <div class="answer">Мгновенное значение</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">7.</div>
+                <div class="q-text">Как называется интервал времени полного цикла изменения ЭДС?</div>
+                <div class="answer">Период</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">8.</div>
+                <div class="q-text">Электрический ток, неизменный по направлению и величине, — это...</div>
+                <div class="answer">Постоянный ток</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">9.</div>
+                <div class="q-text">Векторная величина, равная пределу отношения тока сквозь элемент поверхности... — это...</div>
+                <div class="answer">Плотность тока</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">10.</div>
+                <div class="q-text">Физическая величина, характеризующая скорость передачи или преобразования электрической энергии, — это...</div>
+                <div class="answer">Электрическая мощность</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">11.</div>
+                <div class="q-text">Отношение мощности приемника к мощности источника энергии — это...</div>
+                <div class="answer">КПД</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">12.</div>
+                <div class="q-text">Совокупность соединенных проводами элементов, образующая путь для протекания электрического тока — это...</div>
+                <div class="answer">Электрическая цепь</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">13.</div>
+                <div class="q-text">Графическое изображение электрической цепи, где реальные элементы представлены условными обозначениями, — это...</div>
+                <div class="answer">Схема электрической цепи</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">14.</div>
+                <div class="q-text">Сколько уравнений по первому закону Кирхгофа составляют для схемы с «y» узлами?</div>
+                <div class="answer">y − 1</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">15.</div>
+                <div class="q-text">Какой прибор измеряет напряжение?</div>
+                <div class="answer">Вольтметр</div>
+            </div>
+
+            <!-- Множественный выбор -->
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Что называется электрическим током?</div>
+                <div class="answer">Направленное движение свободных заряженных частиц под действием электрического поля</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Что такое контур в электрической цепи?</div>
+                <div class="answer">Любой замкнутый путь из ветвей и узлов</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Какая формула выражает закон Ома для полной цепи?</div>
+                <div class="answer">I = E / (R + r)</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Что такое ветвь в электрической цепи?</div>
+                <div class="answer">Участок между двумя узлами с одинаковым током</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Второй закон Кирхгофа гласит:</div>
+                <div class="answer">Сумма падений напряжений равна сумме источников ЭДС в контуре</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Как называется максимальное значение синусоидальной ЭДС?</div>
+                <div class="answer">Амплитуда</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Чему равна угловая частота ω при 50 Гц?</div>
+                <div class="answer">314 рад/с</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Что определяет разность начальных фаз напряжения и тока?</div>
+                <div class="answer">Сдвиг фаз</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Как называется величина, обратная периоду?</div>
+                <div class="answer">Частота</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Какое значение переменного тока численно равно постоянному току, выделяющему за период то же количество тепла?</div>
+                <div class="answer">Действующее значение</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Какая проводимость характерна для проводников первого рода (металлов)?</div>
+                <div class="answer">Электронная</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Куда направлено движение электрического тока в металлах?</div>
+                <div class="answer">От плюса источника к минусу</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Какая размерность у напряжения?</div>
+                <div class="answer">Вольт</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Что характеризует ЭДС?</div>
+                <div class="answer">Действие сторонних сил в источнике</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Когда реальный источник напряжения заменяют идеальным источником ЭДС?</div>
+                <div class="answer">При R<sub>вн</sub> = 0</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Что называется узлом в электрической цепи?</div>
+                <div class="answer">Место соединения трех и более ветвей</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Первый закон Кирхгофа гласит:</div>
+                <div class="answer">Алгебраическая сумма токов в узле равна нулю</div>
+            </div>
+
+            <div class="question">
+                <div class="q-number">•</div>
+                <div class="q-text">Какое соединение резисторов называют параллельным?</div>
+                <div class="answer">Когда они присоединены к одним и тем же двум узлам</div>
+            </div>
+
         </div>
         
         <div class="footer">
-            Подготовка к экзамену • ТОЭ
+            Шпаргалка по ТОЭ • Удачи на экзамене!
         </div>
     </div>
-
-    <script>
-        const questions = [
-            {
-                id: 1,
-                text: "Какой тип проводимости у металлов?",
-                options: ["Электронная проводимость", "Ионная проводимость", "Дырочная проводимость", "Электролитическая"],
-                answer: 0
-            },
-            {
-                id: 2,
-                text: "Какой закон отражает сохранение энергии в цепи?",
-                options: ["Закон Ома", "Баланс мощностей", "Первый закон Кирхгофа", "Второй закон Кирхгофа"],
-                answer: 1
-            },
-            {
-                id: 3,
-                text: "Как называется совокупность векторов ЭДС, напряжений и токов, изображённых в общей системе координат?",
-                options: ["Фазорная диаграмма", "Векторная диаграмма", "График мгновенных значений", "Схема замещения"],
-                answer: 1
-            },
-            {
-                id: 4,
-                text: "Как называется значение синусоидальной функции в любой момент времени?",
-                options: ["Амплитудное значение", "Действующее значение", "Мгновенное значение", "Среднее значение"],
-                answer: 2
-            },
-            {
-                id: 5,
-                text: "Чему равно среднее арифметическое значение величины за полпериода?",
-                options: ["Нулю", "2/π Um", "Um", "√2 Um"],
-                answer: 1
-            },
-            {
-                id: 6,
-                text: "Какая величина характеризует напряжение в данный момент времени?",
-                options: ["Действующее значение", "Амплитуда", "Мгновенное значение", "Среднее значение"],
-                answer: 2
-            },
-            {
-                id: 7,
-                text: "Как называется интервал времени полного цикла изменения ЭДС?",
-                options: ["Частота", "Период", "Фаза", "Угловая частота"],
-                answer: 1
-            },
-            {
-                id: 8,
-                text: "Электрический ток, неизменный по направлению и величине, — это...",
-                options: ["Переменный ток", "Пульсирующий ток", "Постоянный ток", "Синусоидальный ток"],
-                answer: 2
-            },
-            {
-                id: 9,
-                text: "Векторная величина, равная пределу отношения тока сквозь элемент поверхности, перпендикулярной направлению движения заряженных частиц, к этому элементу, — это...",
-                options: ["Напряжённость поля", "Электродвижущая сила", "Плотность тока", "Сопротивление"],
-                answer: 2
-            },
-            {
-                id: 10,
-                text: "Физическая величина, характеризующая скорость передачи или преобразования электрической энергии, — это...",
-                options: ["Энергия", "Мощность", "Напряжение", "Сила тока"],
-                answer: 1
-            },
-            {
-                id: 11,
-                text: "Отношение мощности приемника к мощности источника энергии — это...",
-                options: ["Коэффициент мощности", "КПД", "Сопротивление", "Проводимость"],
-                answer: 1
-            },
-            {
-                id: 12,
-                text: "Совокупность соединенных проводами элементов, образующая путь для протекания электрического тока — это...",
-                options: ["Контур", "Ветвь", "Электрическая цепь", "Узел"],
-                answer: 2
-            },
-            {
-                id: 13,
-                text: "Графическое изображение электрической цепи, где реальные элементы представлены условными обозначениями, — это...",
-                options: ["Векторная диаграмма", "Схема электрической цепи", "График зависимости", "Эквивалентная схема"],
-                answer: 1
-            },
-            {
-                id: 14,
-                text: "Сколько уравнений по первому закону Кирхгофа составляют для схемы с «y» узлами?",
-                options: ["y", "y-1", "y+1", "2y"],
-                answer: 1
-            },
-            {
-                id: 15,
-                text: "Какой прибор измеряет напряжение?",
-                options: ["Амперметр", "Вольтметр", "Ваттметр", "Омметр"],
-                answer: 1
-            }
-            // Можно добавить остальные вопросы по аналогии
-        ];
-
-        function renderQuiz() {
-            const container = document.getElementById('quiz');
-            let html = '<h2 style="margin-bottom: 1.5rem; text-align: center; color: #1e40af;">Контрольные вопросы</h2>';
-            
-            questions.forEach((q, index) => {
-                html += `
-                    <div class="question-card">
-                        <div class="question-number">Вопрос ${q.id}</div>
-                        <div class="question-text">${q.text}</div>
-                        <div class="options" id="options-${q.id}">
-                            ${q.options.map((option, i) => `
-                                <label class="option">
-                                    <input type="radio" name="q${q.id}" value="${i}">
-                                    <span>${option}</span>
-                                </label>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            });
-            
-            html += `
-                <button onclick="checkAnswers()">Проверить результаты</button>
-                <div class="result" id="result"></div>
-            `;
-            
-            container.innerHTML = html;
-        }
-        
-        function checkAnswers() {
-            let score = 0;
-            let total = questions.length;
-            
-            questions.forEach(q => {
-                const selected = document.querySelector(`input[name="q${q.id}"]:checked`);
-                if (selected && parseInt(selected.value) === q.answer) {
-                    score++;
-                }
-            });
-            
-            const resultEl = document.getElementById('result');
-            const percentage = Math.round((score / total) * 100);
-            
-            resultEl.style.display = 'block';
-            resultEl.innerHTML = `
-                <strong>Ваш результат: ${score} из ${total} (${percentage}%)</strong><br>
-                ${percentage >= 80 ? 'Отлично! 🎉' : percentage >= 60 ? 'Хорошо! 👍' : 'Нужно подучить 📚'}
-            `;
-            
-            // Прокрутка к результату
-            resultEl.scrollIntoView({ behavior: "smooth" });
-        }
-        
-        // Запуск
-        window.onload = renderQuiz;
-    </script>
 </body>
 </html>
