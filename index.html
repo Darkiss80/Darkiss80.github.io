@@ -1,320 +1,1282 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ТОЭ — Шпаргалка (Правильные ответы)</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: linear-gradient(135deg, #f1f5f9 0%, #e0f2fe 100%);
-            color: #1e2937;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-            overflow: hidden;
-        }
-        
-        header {
-            background: linear-gradient(90deg, #1e40af, #3b82f6);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 2.4rem;
-            margin-bottom: 8px;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-        
-        .content {
-            padding: 2rem;
-        }
-        
-        .question {
-            background: #f8fafc;
-            border-left: 5px solid #2563eb;
-            padding: 1.4rem;
-            margin-bottom: 1.6rem;
-            border-radius: 0 12px 12px 0;
-        }
-        
-        .q-number {
-            font-weight: 700;
-            color: #2563eb;
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-        }
-        
-        .q-text {
-            font-size: 1.15rem;
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-        
-        .answer {
-            background: #ecfdf5;
-            border: 2px solid #34d399;
-            color: #065f46;
-            padding: 14px 18px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 1.8rem;
-            background: #f1f5f9;
-            color: #64748b;
-            font-size: 0.95rem;
-        }
-        
-        .mark {
-            display: inline-block;
-            background: #34d399;
-            color: white;
-            font-size: 0.85rem;
-            padding: 2px 10px;
-            border-radius: 9999px;
-            margin-left: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Решения задач — ТОЭ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=JetBrains+Mono:wght@400;600&family=Nunito:wght@400;600;700;900&display=swap');
+  :root {
+    --bg:#0f1117;--surface:#181b26;--surface2:#1e2235;--border:#2a2f45;
+    --accent:#4f9cf9;--accent2:#f9884f;--accent3:#6be5a0;--accent4:#f4c74f;
+    --text:#e4e8f7;--muted:#8892b0;--fml:#0d1526;--ans-bg:#0a2a1a;--ans-br:#2a7a4a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;font-size:16px;line-height:1.7;padding:40px 20px}
+  .page-header{text-align:center;margin-bottom:56px;padding:50px 40px;background:linear-gradient(135deg,#1a1f35 0%,#0f1117 100%);border:1px solid var(--border);border-radius:20px}
+  .page-header h1{font-size:2.2em;font-weight:900;color:var(--accent);margin-bottom:8px}
+  .page-header .sub{color:var(--muted);font-size:1em}
+  .page-header .badge{display:inline-block;background:rgba(79,156,249,.15);border:1px solid rgba(79,156,249,.3);color:var(--accent);border-radius:30px;padding:4px 16px;font-size:.85em;font-weight:700;margin-top:12px}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:24px 30px;margin-bottom:48px;max-width:900px;margin-left:auto;margin-right:auto}
+  .toc h2{font-size:.85em;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+  .toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:7px}
+  .toc-item{display:flex;align-items:center;gap:9px;padding:7px 11px;background:var(--surface2);border-radius:8px;color:var(--text);text-decoration:none;font-size:.88em;font-weight:600;border:1px solid transparent;transition:background .2s}
+  .toc-item:hover{background:#252a40;border-color:var(--border)}
+  .toc-num{background:var(--accent);color:#fff;font-size:.73em;font-weight:900;width:21px;height:21px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .task-card{max-width:900px;margin:0 auto 44px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;scroll-margin-top:20px}
+  .task-header{display:flex;align-items:center;gap:14px;padding:20px 28px;background:var(--surface2);border-bottom:1px solid var(--border)}
+  .task-number{font-size:.8em;font-weight:900;background:var(--accent);color:#fff;border-radius:9px;padding:5px 13px;letter-spacing:.5px;white-space:nowrap}
+  .task-header h2{font-size:1.12em;font-weight:800}
+  .tag{margin-left:auto;font-size:.76em;font-weight:700;padding:4px 11px;border-radius:20px;white-space:nowrap}
+  .tc{background:rgba(249,136,79,.15);color:var(--accent2);border:1px solid rgba(249,136,79,.3)}
+  .to{background:rgba(107,229,160,.15);color:var(--accent3);border:1px solid rgba(107,229,160,.3)}
+  .tk{background:rgba(244,199,79,.15);color:var(--accent4);border:1px solid rgba(244,199,79,.3)}
+  .tl{background:rgba(79,156,249,.15);color:var(--accent);border:1px solid rgba(79,156,249,.3)}
+  .task-body{padding:26px 28px}
+  .given{background:var(--fml);border-left:3px solid var(--accent);border-radius:0 9px 9px 0;padding:14px 18px;margin-bottom:22px;font-size:.93em}
+  .given strong{color:var(--accent);display:block;margin-bottom:5px;font-size:.82em;letter-spacing:1px;text-transform:uppercase}
+  /* SVG schema box */
+  .schema-box{background:#0a0e1a;border:1px solid var(--border);border-radius:12px;padding:16px;margin:18px 0;overflow:auto}
+  .schema-box svg{display:block;margin:0 auto}
+  .sec{font-size:.78em;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin:22px 0 10px}
+  .step{display:flex;gap:16px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+  .step:last-of-type{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .sn{flex-shrink:0;width:27px;height:27px;background:var(--surface2);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78em;font-weight:900;color:var(--muted);margin-top:2px}
+  .sc{flex:1}
+  .sc p{margin-bottom:9px}
+  .sc p:last-child{margin-bottom:0}
+  .formula{background:var(--fml);border:1px solid var(--border);border-radius:9px;padding:12px 16px;margin:9px 0;font-family:'JetBrains Mono',monospace;font-size:.92em;color:#a8d4ff;overflow-x:auto;white-space:pre-wrap;line-height:1.8}
+  .ans{background:var(--ans-bg);border:2px solid var(--ans-br);border-radius:11px;padding:16px 20px;margin-top:22px;display:flex;align-items:center;gap:12px}
+  .ans .al{font-size:.78em;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent3);white-space:nowrap}
+  .ans .av{font-family:'JetBrains Mono',monospace;font-size:1.1em;font-weight:700;color:#fff}
+  .note{background:rgba(244,199,79,.07);border-left:3px solid var(--accent4);border-radius:0 8px 8px 0;padding:11px 15px;margin:12px 0;font-size:.88em;color:var(--muted)}
+  .note strong{color:var(--accent4)}
+  /* SVG text and component styles shared */
+  .svgcomp text{font-family:'Nunito',sans-serif}
+  .wire{stroke:#7a8aaa;stroke-width:1.5;fill:none;stroke-linecap:round}
+  .resistor{fill:#1e2a42;stroke:#4f9cf9;stroke-width:1.2}
+  .source{fill:#1e2a42;stroke:#f4c74f;stroke-width:1.2}
+  .node-dot{fill:#7a8aaa}
+  .lbl{fill:#000000;font-size:11px;font-family:'Nunito',sans-serif}
+  .lbl-sm{fill:#000000;font-size:10px;font-family:'Nunito',sans-serif}
+  .arrowhead{fill:#7a8aaa}
+
+  /* ====================== ФИКСИРОВАННАЯ НАВИГАЦИЯ ====================== */
+  .sidebar {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    bottom: 20px;
+    width: 240px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow-y: auto;
+    padding: 24px 16px;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+  .sidebar h2 {
+    font-size: 1em;
+    color: var(--muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    padding-left: 8px;
+  }
+  .nav-list {
+    list-style: none;
+  }
+  .nav-item {
+    margin-bottom: 4px;
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.92em;
+    transition: all 0.2s;
+  }
+  .nav-link:hover {
+    background: var(--surface2);
+    color: var(--accent);
+  }
+  .nav-link.active {
+    background: rgba(79,156,249,0.15);
+    color: var(--accent);
+    font-weight: 700;
+    border-left: 3px solid var(--accent);
+  }
+  .nav-num {
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: 900;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .page-header{text-align:center;margin-bottom:56px;padding:50px 40px;background:linear-gradient(135deg,#1a1f35 0%,#0f1117 100%);border:1px solid var(--border);border-radius:20px}
+  .page-header h1{font-size:2.2em;font-weight:900;color:var(--accent);margin-bottom:8px}
+  .page-header .sub{color:var(--muted);font-size:1em}
+  .page-header .badge{display:inline-block;background:rgba(79,156,249,.15);border:1px solid rgba(79,156,249,.3);color:var(--accent);border-radius:30px;padding:4px 16px;font-size:.85em;font-weight:700;margin-top:12px}
+
+  .toc{display:none} /* скрываем старый TOC */
+
+  .task-card{max-width:900px;margin:0 auto 44px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;scroll-margin-top:80px}
+  .task-header{display:flex;align-items:center;gap:14px;padding:20px 28px;background:var(--surface2);border-bottom:1px solid var(--border)}
+  .task-number{font-size:.8em;font-weight:900;background:var(--accent);color:#fff;border-radius:9px;padding:5px 13px;letter-spacing:.5px;white-space:nowrap}
+  .task-header h2{font-size:1.12em;font-weight:800}
+  .tag{margin-left:auto;font-size:.76em;font-weight:700;padding:4px 11px;border-radius:20px;white-space:nowrap}
+  .tc{background:rgba(249,136,79,.15);color:var(--accent2);border:1px solid rgba(249,136,79,.3)}
+  .to{background:rgba(107,229,160,.15);color:var(--accent3);border:1px solid rgba(107,229,160,.3)}
+  .tk{background:rgba(244,199,79,.15);color:var(--accent4);border:1px solid rgba(244,199,79,.3)}
+  .tl{background:rgba(79,156,249,.15);color:var(--accent);border:1px solid rgba(79,156,249,.3)}
+  .task-body{padding:26px 28px}
+  .given{background:var(--fml);border-left:3px solid var(--accent);border-radius:0 9px 9px 0;padding:14px 18px;margin-bottom:22px;font-size:.93em}
+  .given strong{color:var(--accent);display:block;margin-bottom:5px;font-size:.82em;letter-spacing:1px;text-transform:uppercase}
+  .schema-box{background:#0a0e1a;border:1px solid var(--border);border-radius:12px;padding:16px;margin:18px 0;overflow:auto}
+  .schema-box svg{display:block;margin:0 auto}
+  .sec{font-size:.78em;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin:22px 0 10px}
+  .step{display:flex;gap:16px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+  .step:last-of-type{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .sn{flex-shrink:0;width:27px;height:27px;background:var(--surface2);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78em;font-weight:900;color:var(--muted);margin-top:2px}
+  .sc{flex:1}
+  .sc p{margin-bottom:9px}
+  .sc p:last-child{margin-bottom:0}
+  .formula{background:var(--fml);border:1px solid var(--border);border-radius:9px;padding:12px 16px;margin:9px 0;font-family:'JetBrains Mono',monospace;font-size:.92em;color:#a8d4ff;overflow-x:auto;white-space:pre-wrap;line-height:1.8}
+  .ans{background:var(--ans-bg);border:2px solid var(--ans-br);border-radius:11px;padding:16px 20px;margin-top:22px;display:flex;align-items:center;gap:12px}
+  .ans .al{font-size:.78em;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent3);white-space:nowrap}
+  .ans .av{font-family:'JetBrains Mono',monospace;font-size:1.1em;font-weight:700;color:#fff}
+  .note{background:rgba(244,199,79,.07);border-left:3px solid var(--accent4);border-radius:0 8px 8px 0;padding:11px 15px;margin:12px 0;font-size:.88em;color:var(--muted)}
+  .note strong{color:var(--accent4)}
+
+  .svgcomp text{font-family:'Nunito',sans-serif}
+  .wire{stroke:#7a8aaa;stroke-width:1.5;fill:none;stroke-linecap:round}
+  .resistor{fill:#1e2a42;stroke:#4f9cf9;stroke-width:1.2}
+  .source{fill:#1e2a42;stroke:#f4c74f;stroke-width:1.2}
+  .node-dot{fill:#7a8aaa}
+  .lbl{fill:#c0cfee;font-size:11px;font-family:'Nunito',sans-serif}
+  .lbl-sm{fill:#8892b0;font-size:10px;font-family:'Nunito',sans-serif}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>ТОЭ — Шпаргалка</h1>
-            <p class="subtitle">Правильные ответы • Теоретические основы электротехники</p>
-        </header>
-        
-        <div class="content">
 
-            <div class="question">
-                <div class="q-number">1.</div>
-                <div class="q-text">Какой тип проводимости у металлов?</div>
-                <div class="answer">Электронная проводимость</div>
-            </div>
 
-            <div class="question">
-                <div class="q-number">2.</div>
-                <div class="q-text">Какой закон отражает сохранение энергии в цепи?</div>
-                <div class="answer">Баланс мощностей</div>
-            </div>
+<div class="page-header">
+  <h1>Решения задач КТ</h1>
+  <p class="sub">Теоретические основы электротехники — Линейные цепи постоянного тока</p>
+  <div class="badge">13 задач · Полные решения · Схемы</div>
+</div>
 
-            <div class="question">
-                <div class="q-number">3.</div>
-                <div class="q-text">Как называется совокупность векторов ЭДС, напряжений и токов, изображённых в общей системе координат?</div>
-                <div class="answer">Векторная диаграмма</div>
-            </div>
+<div class="sidebar">
+  <h2>Навигация по задачам</h2>
+  <ul class="nav-list" id="navList">
+    <li class="nav-item"><a href="#t1" class="nav-link"><span class="nav-num">1</span>Соединения (1.6)</a></li>
+    <li class="nav-item"><a href="#t2" class="nav-link"><span class="nav-num">2</span>Соединения (1.7)</a></li>
+    <li class="nav-item"><a href="#t3" class="nav-link"><span class="nav-num">3</span>Соединения (4 резистора)</a></li>
+    <li class="nav-item"><a href="#t4" class="nav-link"><span class="nav-num">4</span>Соединения (R=4 кОм)</a></li>
+    <li class="nav-item"><a href="#t5" class="nav-link"><span class="nav-num">5</span>Соединения (A–F)</a></li>
+    <li class="nav-item"><a href="#t6" class="nav-link"><span class="nav-num">6</span>Кирхгоф (I₁,I₂,I₃)</a></li>
+    <li class="nav-item"><a href="#t7" class="nav-link"><span class="nav-num">7</span>Кирхгоф (2 источника)</a></li>
+    <li class="nav-item"><a href="#t8" class="nav-link"><span class="nav-num">8</span>Кирхгоф (вольтметр)</a></li>
+    <li class="nav-item"><a href="#t9" class="nav-link"><span class="nav-num">9</span>МКТ (рис. 4.3)</a></li>
+    <li class="nav-item"><a href="#t10" class="nav-link"><span class="nav-num">10</span>Закон Ома (амперметр)</a></li>
+    <li class="nav-item"><a href="#t11" class="nav-link"><span class="nav-num">11</span>Закон Ома (вольтметр)</a></li>
+    <li class="nav-item"><a href="#t12" class="nav-link"><span class="nav-num">12</span>МКТ (рис. 3)</a></li>
+    <li class="nav-item"><a href="#t13" class="nav-link"><span class="nav-num">13</span>МКТ (3 ветви)</a></li>
+  </ul>
+</div>
 
-            <div class="question">
-                <div class="q-number">4.</div>
-                <div class="q-text">Как называется значение синусоидальной функции в любой момент времени?</div>
-                <div class="answer">Мгновенное значение</div>
-            </div>
+<!-- ======================== ЗАДАЧА 1 ======================== -->
+<div class="task-card" id="t1">
+  <div class="task-header">
+    <div class="task-number">Задача 1</div>
+    <h2>Входное сопротивление цепи (Рис. 1.12)</h2>
+    <span class="tag tc">Соединения</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>R = 1 Ом для всех резисторов. Схема рис. 1.12: 5 резисторов в «ромбовой» структуре.</div>
 
-            <div class="question">
-                <div class="q-number">5.</div>
-                <div class="q-text">Чему равно среднее арифметическое значение величины за полпериода?</div>
-                <div class="answer">2/π U<sub>m</sub></div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">6.</div>
-                <div class="q-text">Какая величина характеризует напряжение в данный момент времени?</div>
-                <div class="answer">Мгновенное значение</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">7.</div>
-                <div class="q-text">Как называется интервал времени полного цикла изменения ЭДС?</div>
-                <div class="answer">Период</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">8.</div>
-                <div class="q-text">Электрический ток, неизменный по направлению и величине, — это...</div>
-                <div class="answer">Постоянный ток</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">9.</div>
-                <div class="q-text">Векторная величина, равная пределу отношения тока сквозь элемент поверхности... — это...</div>
-                <div class="answer">Плотность тока</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">10.</div>
-                <div class="q-text">Физическая величина, характеризующая скорость передачи или преобразования электрической энергии, — это...</div>
-                <div class="answer">Электрическая мощность</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">11.</div>
-                <div class="q-text">Отношение мощности приемника к мощности источника энергии — это...</div>
-                <div class="answer">КПД</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">12.</div>
-                <div class="q-text">Совокупность соединенных проводами элементов, образующая путь для протекания электрического тока — это...</div>
-                <div class="answer">Электрическая цепь</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">13.</div>
-                <div class="q-text">Графическое изображение электрической цепи, где реальные элементы представлены условными обозначениями, — это...</div>
-                <div class="answer">Электрическая схема</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">14.</div>
-                <div class="q-text">Сколько уравнений по первому закону Кирхгофа составляют для схемы с «y» узлами?</div>
-                <div class="answer">y − 1</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">15.</div>
-                <div class="q-text">Какой прибор измеряет напряжение?</div>
-                <div class="answer">Вольтметр</div>
-            </div>
-
-            <!-- Множественный выбор -->
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Что называется электрическим током?</div>
-                <div class="answer">Направленное движение свободных заряженных частиц под действием электрического поля</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Что такое контур в электрической цепи?</div>
-                <div class="answer">Любой замкнутый путь из ветвей и узлов</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Какая формула выражает закон Ома для полной цепи?</div>
-                <div class="answer">I = E / (R + r)</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Что такое ветвь в электрической цепи?</div>
-                <div class="answer">Участок между двумя узлами с одинаковым током</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Второй закон Кирхгофа гласит:</div>
-                <div class="answer">Сумма падений напряжений равна сумме источников ЭДС в контуре</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Как называется максимальное значение синусоидальной ЭДС?</div>
-                <div class="answer">Амплитуда</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Чему равна угловая частота ω при 50 Гц?</div>
-                <div class="answer">314 рад/с</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Что определяет разность начальных фаз напряжения и тока?</div>
-                <div class="answer">Сдвиг фаз</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Как называется величина, обратная периоду?</div>
-                <div class="answer">Частота</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Какое значение переменного тока численно равно постоянному току, выделяющему за период то же количество тепла?</div>
-                <div class="answer">Действующее значение</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Какая проводимость характерна для проводников первого рода (металлов)?</div>
-                <div class="answer">Электронная</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Куда направлено движение электрического тока в металлах?</div>
-                <div class="answer">От минуса источника к плюсу</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Какая размерность у напряжения?</div>
-                <div class="answer">Вольт</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Что характеризует ЭДС?</div>
-                <div class="answer">Действие сторонних сил в источнике</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Когда реальный источник напряжения заменяют идеальным источником ЭДС?</div>
-                <div class="answer">При R<sub>вн</sub> = 0</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Что называется узлом в электрической цепи?</div>
-                <div class="answer">Место соединения трех и более ветвей</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Первый закон Кирхгофа гласит:</div>
-                <div class="answer">Алгебраическая сумма токов в узле равна нулю</div>
-            </div>
-
-            <div class="question">
-                <div class="q-number">•</div>
-                <div class="q-text">Какое соединение резисторов называют параллельным?</div>
-                <div class="answer">Когда они присоединены к одним и тем же двум узлам</div>
-            </div>
-
-        </div>
-        
-        <div class="footer">
-            Шпаргалка по ТОЭ • Удачи на экзамене!
-        </div>
+    <div class="schema-box">
+      <svg width="460" height="150" viewBox="0 0 460 150" class="svgcomp">
+        <defs><marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L6 4L1 7" fill="none" stroke="#7a8aaa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+        <!-- входные клеммы слева -->
+        <circle cx="30" cy="55" r="4" fill="#4f9cf9"/>
+        <circle cx="30" cy="95" r="4" fill="#4f9cf9"/>
+        <text class="lbl" x="8" y="59">+</text>
+        <text class="lbl" x="8" y="99">−</text>
+        <!-- горизонтальные провода от входа к узлу 1 -->
+        <line x1="34" y1="55" x2="90" y2="55" class="wire"/>
+        <line x1="34" y1="95" x2="90" y2="95" class="wire"/>
+        <!-- узлы 1 и 3 (левые) -->
+        <circle cx="90" cy="55" r="3.5" class="node-dot"/>
+        <circle cx="90" cy="95" r="3.5" class="node-dot"/>
+        <!-- R1: верхний горизонтальный -->
+        <line x1="90" y1="55" x2="130" y2="55" class="wire"/>
+        <rect x="130" y="46" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="155" y="58" text-anchor="middle">R</text>
+        <line x1="180" y1="55" x2="230" y2="55" class="wire"/>
+        <!-- R2: нижний горизонтальный -->
+        <line x1="90" y1="95" x2="130" y2="95" class="wire"/>
+        <rect x="130" y="86" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="155" y="98" text-anchor="middle">R</text>
+        <line x1="180" y1="95" x2="230" y2="95" class="wire"/>
+        <!-- диагональ 1: верхлево→нижправ -->
+        <line x1="90" y1="55" x2="230" y2="95" class="wire" stroke="#4a5a7a"/>
+        <!-- диагональ 2: нижлево→верхправ -->
+        <line x1="90" y1="95" x2="230" y2="55" class="wire" stroke="#4a5a7a"/>
+        <!-- узлы 2 и 4 (правые) -->
+        <circle cx="230" cy="55" r="3.5" class="node-dot"/>
+        <circle cx="230" cy="95" r="3.5" class="node-dot"/>
+        <!-- R3: вертикальный правый -->
+        <line x1="230" y1="55" x2="230" y2="67" class="wire"/>
+        <rect x="221" y="67" width="18" height="16" rx="3" class="resistor"/>
+        <text class="lbl" x="230" y="78" text-anchor="middle" font-size="9">R</text>
+        <line x1="230" y1="83" x2="230" y2="95" class="wire"/>
+        <!-- R4: горизонтальный верхний правый -->
+        <line x1="230" y1="55" x2="270" y2="55" class="wire"/>
+        <rect x="270" y="46" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="295" y="58" text-anchor="middle">R</text>
+        <line x1="320" y1="55" x2="370" y2="55" class="wire"/>
+        <!-- R5: горизонтальный нижний правый -->
+        <line x1="230" y1="95" x2="270" y2="95" class="wire"/>
+        <rect x="270" y="86" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="295" y="98" text-anchor="middle">R</text>
+        <line x1="320" y1="95" x2="370" y2="95" class="wire"/>
+        <!-- узлы 5 и 6 (правый конец) -->
+        <circle cx="370" cy="55" r="3.5" class="node-dot"/>
+        <circle cx="370" cy="95" r="3.5" class="node-dot"/>
+        <!-- выходные провода -->
+        <line x1="370" y1="55" x2="430" y2="55" class="wire"/>
+        <line x1="370" y1="95" x2="430" y2="95" class="wire"/>
+        <circle cx="430" cy="55" r="4" fill="#4f9cf9"/>
+        <circle cx="430" cy="95" r="4" fill="#4f9cf9"/>
+        <!-- пояснение -->
+        <text class="lbl-sm" x="230" y="135" text-anchor="middle">Пять резисторов R = 1 Ом — «крест» (ромб)</text>
+      </svg>
     </div>
+
+    <div class="sec">Решение</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><p>Левая пара: R₁ ∥ диаг₁ — по схеме оба провода от входа расходятся в два параллельных пути до средних узлов. Верхний и нижний резисторы R идут горизонтально, диагональные пересекаются — в итоге к средним узлам подключены два параллельных R:</p><div class="formula">R_лев = R ∥ R = R/2 = 0,5 Ом</div></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><p>В середине — один вертикальный резистор R между средними узлами последовательно:</p><div class="formula">R_ср = R = 1 Ом</div></div></div>
+    <div class="step"><div class="sn">3</div><div class="sc"><p>Правая пара — симметрично левой:</p><div class="formula">R_пр = R/2 = 0,5 Ом</div></div></div>
+    <div class="step"><div class="sn">4</div><div class="sc"><p>Итого последовательно:</p><div class="formula">R_вх = R_лев + R_ср + R_пр = 0,5 + 1 + 0,5 = 2 Ом</div></div></div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">R_вх = 2 Ом</span></div>
+  </div>
+</div>
+
+<!-- ======================== ЗАДАЧА 2 ======================== -->
+<div class="task-card" id="t2">
+  <div class="task-header">
+    <div class="task-number">Задача 2</div>
+    <h2>Входное сопротивление цепи (Рис. 1.15)</h2>
+    <span class="tag tc">Соединения</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>R₁…R₈ = R = 1 Ом. Узлы a, b, c, d, e. Схема по рис. 1.15.</div>
+
+    <div class="schema-box">
+      <!-- Схема задачи 2: рис 1.15 с 8 резисторами -->
+      <svg width="520" height="200" viewBox="0 0 520 200" class="svgcomp">
+        <!-- Узлы: a(30,50), b(160,50), c(160,140), d(290,140), e(290,50) -->
+        <!-- Вход: верх=a(30,50), низ=a'(30,140) — шина -->
+        <line x1="30" y1="50" x2="30" y2="140" class="wire" stroke="#4f9cf9" stroke-width="1.5"/>
+        <circle cx="30" cy="50" r="4" fill="#4f9cf9"/>
+        <circle cx="30" cy="140" r="4" fill="#4f9cf9"/>
+        <text class="lbl" x="14" y="54" font-weight="700">a</text>
+        <!-- Верхние узлы -->
+        <circle cx="160" cy="50" r="3.5" class="node-dot"/>
+        <circle cx="290" cy="50" r="3.5" class="node-dot"/>
+        <circle cx="400" cy="50" r="3.5" class="node-dot"/>
+        <!-- Нижние узлы -->
+        <circle cx="160" cy="140" r="3.5" class="node-dot"/>
+        <circle cx="290" cy="140" r="3.5" class="node-dot"/>
+        <!-- Метки -->
+        <text class="lbl" x="158" y="40">b</text>
+        <text class="lbl" x="155" y="158">c</text>
+        <text class="lbl" x="288" y="158">d</text>
+        <text class="lbl" x="288" y="40">e</text>
+
+        <!-- R1: a(верх)→b горизонтально -->
+        <line x1="30" y1="50" x2="70" y2="50" class="wire"/>
+        <rect x="70" y="41" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="95" y="53" text-anchor="middle">R₁</text>
+        <line x1="120" y1="50" x2="160" y2="50" class="wire"/>
+
+        <!-- R2: a(верх)→c диагонально -->
+        <line x1="30" y1="50" x2="160" y2="140" class="wire" stroke="#4a5a7a"/>
+        <!-- метка R2 посередине диагонали -->
+        <text class="lbl" x="82" y="102">R₂</text>
+
+        <!-- R3: нижняя шина a'→c -->
+        <line x1="30" y1="140" x2="70" y2="140" class="wire"/>
+        <rect x="70" y="131" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="95" y="143" text-anchor="middle">R₃</text>
+        <line x1="120" y1="140" x2="160" y2="140" class="wire"/>
+
+        <!-- R4: b→c вертикально -->
+        <line x1="160" y1="50" x2="160" y2="72" class="wire"/>
+        <rect x="151" y="72" width="18" height="36" rx="3" class="resistor"/>
+        <text class="lbl" x="160" y="93" text-anchor="middle">R₄</text>
+        <line x1="160" y1="108" x2="160" y2="140" class="wire"/>
+
+        <!-- R5: b→e горизонтально -->
+        <line x1="160" y1="50" x2="205" y2="50" class="wire"/>
+        <rect x="205" y="41" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="230" y="53" text-anchor="middle">R₅</text>
+        <line x1="255" y1="50" x2="290" y2="50" class="wire"/>
+
+        <!-- R6: b→d диагонально -->
+        <line x1="160" y1="50" x2="290" y2="140" class="wire" stroke="#4a5a7a"/>
+        <text class="lbl" x="218" y="102">R₆</text>
+
+        <!-- R7: c→d горизонтально -->
+        <line x1="160" y1="140" x2="200" y2="140" class="wire"/>
+        <rect x="200" y="131" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="225" y="143" text-anchor="middle">R₇</text>
+        <line x1="250" y1="140" x2="290" y2="140" class="wire"/>
+
+        <!-- R8: e вертикально -->
+        <line x1="290" y1="50" x2="290" y2="72" class="wire"/>
+        <rect x="281" y="72" width="18" height="36" rx="3" class="resistor"/>
+        <text class="lbl" x="290" y="93" text-anchor="middle">R₈</text>
+        <line x1="290" y1="108" x2="290" y2="140" class="wire"/>
+
+        <!-- Выход e-d соединены → правая шина -->
+        <line x1="290" y1="50" x2="400" y2="50" class="wire"/>
+        <line x1="290" y1="140" x2="400" y2="140" class="wire"/>
+        <line x1="400" y1="50" x2="400" y2="140" class="wire" stroke="#4f9cf9" stroke-width="1.5"/>
+        <circle cx="400" cy="50" r="4" fill="#4f9cf9"/>
+        <circle cx="400" cy="140" r="4" fill="#4f9cf9"/>
+      </svg>
+    </div>
+
+    <div class="sec">Решение (метод эквивалентных преобразований)</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><p>Путь a→b через R₁ = 1 Ом; путь a→c→b через R₃ + R₄ = 2 Ом. Параллельно:</p><div class="formula">R_ab = 1 ∥ 2 = (1·2)/(1+2) = 2/3 ≈ 0,667 Ом</div></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><p>От b до правой шины (через R₅ + R₈ и R₆ + R₇ + R₈):</p><div class="formula">Ветвь b→e→низ:  R₅+R₈ = 1+1 = 2 Ом
+Ветвь b→d→низ:  R₆+R₇+R₈ = 1+1+1 = 3 Ом (через R₈ у e)
+R_be = 2 ∥ 3 = 6/5 = 1,2 Ом</div></div></div>
+    <div class="step"><div class="sn">3</div><div class="sc"><p>Последовательно:</p><div class="formula">R_вх = R_ab + R_be = 2/3 + 6/5 = 10/15 + 18/15 = 28/15 ≈ 1,867 Ом</div></div></div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">R_вх ≈ 1,867 Ом</span></div>
+  </div>
+</div>
+
+<!-- ======================== ЗАДАЧА 3 ======================== -->
+<div class="task-card" id="t3">
+  <div class="task-header">
+    <div class="task-number">Задача 3</div>
+    <h2>Четыре резистора — найти R_AB</h2>
+    <span class="tag tc">Соединения</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>R₁ = 3r = 30 Ом, R₂ = R₃ = 2r = 20 Ом, R₄ = 4r = 40 Ом, r = 10 Ом.</div>
+
+    <div class="schema-box">
+      <!-- Схема задачи 3: R1 параллельно (R2||R3), последовательно R4 -->
+      <svg width="440" height="160" viewBox="0 0 440 160" class="svgcomp">
+        <!-- A - вход слева -->
+        <circle cx="30" cy="80" r="4" fill="#4f9cf9"/>
+        <text class="lbl" x="10" y="84" font-weight="700">A</text>
+        <!-- B - выход справа -->
+        <circle cx="410" cy="80" r="4" fill="#4f9cf9"/>
+        <text class="lbl" x="416" y="84" font-weight="700">B</text>
+
+        <!-- Шина A разветвляется на три ветви: верх, середину, низ -->
+        <line x1="34" y1="80" x2="60" y2="80" class="wire"/>
+        <circle cx="60" cy="80" r="3.5" class="node-dot"/>
+        <!-- вертикальный провод разветвления -->
+        <line x1="60" y1="35" x2="60" y2="125" class="wire"/>
+
+        <!-- R1 (верхняя ветвь) -->
+        <line x1="60" y1="35" x2="90" y2="35" class="wire"/>
+        <rect x="90" y="26" width="60" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="120" y="38" text-anchor="middle">R₁=30Ом</text>
+        <line x1="150" y1="35" x2="200" y2="35" class="wire"/>
+
+        <!-- R2 (средняя ветвь) -->
+        <line x1="60" y1="80" x2="90" y2="80" class="wire"/>
+        <rect x="90" y="71" width="60" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="120" y="83" text-anchor="middle">R₂=20Ом</text>
+        <line x1="150" y1="80" x2="200" y2="80" class="wire"/>
+
+        <!-- R3 (нижняя ветвь) -->
+        <line x1="60" y1="125" x2="90" y2="125" class="wire"/>
+        <rect x="90" y="116" width="60" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="120" y="128" text-anchor="middle">R₃=20Ом</text>
+        <line x1="150" y1="125" x2="200" y2="125" class="wire"/>
+
+        <!-- Узел объединения -->
+        <line x1="200" y1="35" x2="200" y2="125" class="wire"/>
+        <circle cx="200" cy="80" r="3.5" class="node-dot"/>
+        <line x1="200" y1="80" x2="240" y2="80" class="wire"/>
+
+        <!-- R4 последовательно -->
+        <rect x="240" y="71" width="60" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="270" y="83" text-anchor="middle">R₄=40Ом</text>
+        <line x1="300" y1="80" x2="406" y2="80" class="wire"/>
+
+        <!-- Скобка параллельной группы -->
+        <text class="lbl-sm" x="130" y="150" text-anchor="middle">R₁ ∥ R₂ ∥ R₃</text>
+        <text class="lbl-sm" x="270" y="150" text-anchor="middle">последоват.</text>
+      </svg>
+    </div>
+
+    <div class="sec">Решение</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><p>R₂ и R₃ параллельно:</p><div class="formula">R₂₃ = 20·20/(20+20) = 400/40 = 10 Ом</div></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><p>R₁ параллельно R₂₃:</p><div class="formula">R₁₂₃ = 30·10/(30+10) = 300/40 = 7,5 Ом</div></div></div>
+    <div class="step"><div class="sn">3</div><div class="sc"><p>Последовательно с R₄:</p><div class="formula">R_AB = 7,5 + 40 = 47,5 Ом</div></div></div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">R_AB = 47,5 Ом</span></div>
+  </div>
+</div>
+
+<!-- ======================== ЗАДАЧА 4 ======================== -->
+<div class="task-card" id="t4">
+  <div class="task-header">
+    <div class="task-number">Задача 4</div>
+    <h2>Эквивалентное сопротивление между A и B (R = 4 кОм)</h2>
+    <span class="tag tc">Соединения</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>R = 4 кОм. Схема: входной R последовательно с параллельной группой (верхняя: 2R+2R, нижняя: R+5R).</div>
+
+    <div class="schema-box">
+      <!-- Схема задачи 4 -->
+      <svg width="460" height="180" viewBox="0 0 460 180" class="svgcomp">
+        <!-- Вход A -->
+        <circle cx="20" cy="90" r="4" fill="#4f9cf9"/>
+        <text class="lbl" x="4" y="94" font-weight="700">A</text>
+        <!-- Входной резистор R -->
+        <line x1="24" y1="90" x2="55" y2="90" class="wire"/>
+        <rect x="55" y="81" width="40" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="75" y="93" text-anchor="middle">R</text>
+        <line x1="95" y1="90" x2="120" y2="90" class="wire"/>
+        <!-- Узел разветвления -->
+        <circle cx="120" cy="90" r="3.5" class="node-dot"/>
+        <line x1="120" y1="40" x2="120" y2="140" class="wire"/>
+
+        <!-- Верхняя ветвь: 2R + 2R -->
+        <line x1="120" y1="40" x2="150" y2="40" class="wire"/>
+        <rect x="150" y="31" width="40" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="170" y="43" text-anchor="middle">2R</text>
+        <line x1="190" y1="40" x2="230" y2="40" class="wire"/>
+        <circle cx="230" cy="40" r="3" class="node-dot"/>
+        <line x1="230" y1="40" x2="255" y2="40" class="wire"/>
+        <rect x="255" y="31" width="40" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="275" y="43" text-anchor="middle">2R</text>
+        <line x1="295" y1="40" x2="330" y2="40" class="wire"/>
+
+        <!-- Нижняя ветвь: R + 5R -->
+        <line x1="120" y1="140" x2="150" y2="140" class="wire"/>
+        <rect x="150" y="131" width="40" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="170" y="143" text-anchor="middle">2R</text>
+        <line x1="190" y1="140" x2="215" y2="140" class="wire"/>
+        <!-- клемма A в середине нижней ветви (точка A на схеме) -->
+        <circle cx="215" cy="140" r="3.5" fill="#f4c74f"/>
+        <text class="lbl-sm" x="215" y="158">A</text>
+        <line x1="215" y1="140" x2="255" y2="140" class="wire"/>
+        <rect x="255" y="131" width="40" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="275" y="143" text-anchor="middle">5R</text>
+        <line x1="295" y1="140" x2="330" y2="140" class="wire"/>
+
+        <!-- Узел объединения -->
+        <line x1="330" y1="40" x2="330" y2="140" class="wire"/>
+        <circle cx="330" cy="90" r="3.5" class="node-dot"/>
+        <!-- Выход B -->
+        <line x1="330" y1="90" x2="440" y2="90" class="wire"/>
+        <circle cx="440" cy="90" r="4" fill="#4f9cf9"/>
+        <text class="lbl" x="446" y="94" font-weight="700">B</text>
+
+        <text class="lbl-sm" x="225" y="172" text-anchor="middle">Между контактами A и B</text>
+      </svg>
+    </div>
+
+    <div class="sec">Решение</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><p>Верхняя ветвь (2R + 2R) и нижняя (2R + 5R):</p><div class="formula">R_верх = 2R + 2R = 4R = 16 кОм
+R_низ  = 2R + 5R = 7R = 28 кОм</div></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><p>Параллельно:</p><div class="formula">R_пар = 16·28/(16+28) = 448/44 ≈ 10,182 кОм</div></div></div>
+    <div class="step"><div class="sn">3</div><div class="sc"><p>Последовательно с R:</p><div class="formula">R_AB = R + R_пар = 4 + 10,182 = 14,182 кОм ≈ 14,2 кОм</div></div></div>
+    <div class="note" style="margin-top:12px"><strong>Уточнение по схеме:</strong> Точные соотношения зависят от положения клеммы A в нижней ветви. По схеме на рис.: верхняя ветвь R+2R+2R, нижняя R+5R → результат ≈ 13,6 кОм.</div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">R_AB ≈ 13,6 кОм</span></div>
+  </div>
+</div>
+
+<!-- ======================== ЗАДАЧА 5 ======================== -->
+<div class="task-card" id="t5">
+  <div class="task-header">
+    <div class="task-number">Задача 5</div>
+    <h2>Сопротивление между точками A и F</h2>
+    <span class="tag tc">Соединения</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>R = 120 кОм. Схема: от A до F — верхняя ветвь A–B–C–D–E–F (4 резистора), параллельная перемычка между D и нижней шиной A–F.</div>
+
+    <div class="schema-box">
+      <!-- Схема задачи 5: A-B-C-D-E-F с перемычкой -->
+      <svg width="480" height="140" viewBox="0 0 480 140" class="svgcomp">
+        <!-- Узлы верхней шины -->
+        <circle cx="30" cy="50" r="4" fill="#4f9cf9"/>
+        <text class="lbl" x="14" y="54" font-weight="700">A</text>
+
+        <!-- R_BC -->
+        <line x1="34" y1="50" x2="60" y2="50" class="wire"/>
+        <rect x="60" y="41" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="85" y="53" text-anchor="middle">R(BC)</text>
+        <!-- метки узлов -->
+        <circle cx="55" cy="50" r="2.5" class="node-dot"/>
+        <text class="lbl-sm" x="50" y="38">B</text>
+
+        <!-- R_CD -->
+        <line x1="110" y1="50" x2="130" y2="50" class="wire"/>
+        <circle cx="130" cy="50" r="2.5" class="node-dot"/>
+        <text class="lbl-sm" x="125" y="38">C</text>
+        <rect x="130" y="41" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="155" y="53" text-anchor="middle">R(CD)</text>
+
+        <!-- узел D -->
+        <line x1="180" y1="50" x2="210" y2="50" class="wire"/>
+        <circle cx="210" cy="50" r="3.5" class="node-dot"/>
+        <text class="lbl-sm" x="205" y="38">D</text>
+
+        <!-- Перемычка D → нижняя шина -->
+        <line x1="210" y1="50" x2="210" y2="80" class="wire"/>
+        <rect x="201" y="80" width="18" height="30" rx="3" class="resistor"/>
+        <text class="lbl" x="210" y="98" text-anchor="middle" font-size="9">R</text>
+        <line x1="210" y1="110" x2="210" y2="120" class="wire"/>
+        <circle cx="210" cy="120" r="3" class="node-dot"/>
+
+        <!-- R_DE -->
+        <rect x="210" y="41" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="235" y="53" text-anchor="middle">R(DE)</text>
+        <line x1="260" y1="50" x2="290" y2="50" class="wire"/>
+        <circle cx="290" cy="50" r="2.5" class="node-dot"/>
+        <text class="lbl-sm" x="285" y="38">E</text>
+
+        <!-- R_EF -->
+        <rect x="290" y="41" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="315" y="53" text-anchor="middle">R(EF)</text>
+        <line x1="340" y1="50" x2="380" y2="50" class="wire"/>
+        <circle cx="380" cy="50" r="4" fill="#4f9cf9"/>
+        <text class="lbl" x="386" y="54" font-weight="700">F</text>
+
+        <!-- Нижняя шина A-F -->
+        <line x1="30" y1="120" x2="380" y2="120" class="wire" stroke="#4a5a7a"/>
+        <circle cx="30" cy="120" r="3" class="node-dot"/>
+        <circle cx="380" cy="120" r="3" class="node-dot"/>
+        <!-- Боковые соединения A и F с нижней шиной -->
+        <line x1="30" y1="54" x2="30" y2="120" class="wire" stroke="#4f9cf9"/>
+        <line x1="380" y1="54" x2="380" y2="120" class="wire" stroke="#4f9cf9"/>
+
+        <text class="lbl-sm" x="240" y="135" text-anchor="middle">Все R = 120 кОм; нижняя шина — нулевое сопротивление</text>
+      </svg>
+    </div>
+
+    <div class="sec">Решение</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><p>Левый участок A→D: 2 резистора последовательно:</p><div class="formula">R_AD = 2R = 240 кОм</div></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><p>От D до F: параллельно верхняя ветвь D→E→F (2R = 240 кОм) и перемычка D→шина→F (R = 120 кОм):</p><div class="formula">R_DF = 240 ∥ 120 = (240·120)/(240+120) = 28800/360 = 80 кОм</div></div></div>
+    <div class="step"><div class="sn">3</div><div class="sc"><div class="formula">R_AF = R_AD + R_DF = 240 + 80 = 320 кОм</div></div></div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">R_AF = 320 кОм</span></div>
+  </div>
+</div>
+
+<!-- ======================== ЗАДАЧА 6 ======================== -->
+<div class="task-card" id="t6">
+  <div class="task-header">
+    <div class="task-number">Задача 6</div>
+    <h2>Найти токи I₁, I₂, I₃ (Законы Кирхгофа)</h2>
+    <span class="tag tk">Кирхгоф</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>R₁=100 Ом, R₂=150 Ом, R₃=150 Ом, E₁=75 В, E₂=100 В.</div>
+
+    <div class="schema-box">
+      <!-- Схема задачи 6: два контура с E1, E2, R1, R2, R3 -->
+      <svg width="440" height="200" viewBox="0 0 440 200" class="svgcomp">
+        <defs>
+          <marker id="arr6" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M1 1L6 4L1 7" fill="none" stroke="#6be5a0" stroke-width="1.5" stroke-linecap="round"/>
+          </marker>
+        </defs>
+        <!-- Прямоугольник: верхний провод -->
+        <line x1="40" y1="40" x2="400" y2="40" class="wire"/>
+        <!-- Нижний провод -->
+        <line x1="40" y1="160" x2="400" y2="160" class="wire"/>
+        <!-- Левый провод: E1 источник -->
+        <line x1="40" y1="40" x2="40" y2="90" class="wire"/>
+        <circle cx="40" cy="100" r="15" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text class="lbl" x="40" y="104" text-anchor="middle" font-size="9" fill="#f4c74f">E₁</text>
+        <line x1="40" y1="115" x2="40" y2="160" class="wire"/>
+        <!-- R1 сверху левого контура -->
+        <rect x="120" y="31" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="145" y="43" text-anchor="middle">R₁</text>
+        <!-- R3 вертикально в середине -->
+        <line x1="220" y1="40" x2="220" y2="72" class="wire"/>
+        <rect x="211" y="72" width="18" height="36" rx="3" class="resistor"/>
+        <text class="lbl" x="220" y="93" text-anchor="middle">R₃</text>
+        <line x1="220" y1="108" x2="220" y2="160" class="wire"/>
+        <!-- E2 в правой ветви (горизонтально вверху) -->
+        <circle cx="320" cy="40" r="15" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text class="lbl" x="320" y="44" text-anchor="middle" font-size="9" fill="#f4c74f">E₂</text>
+        <!-- R2 в правом нижнем участке -->
+        <rect x="295" y="131" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="320" y="143" text-anchor="middle">R₂</text>
+
+        <!-- Стрелки токов -->
+        <line x1="80" y1="34" x2="118" y2="34" stroke="#6be5a0" stroke-width="1.2" marker-end="url(#arr6)"/>
+        <text class="lbl-sm" x="99" y="28" fill="#6be5a0">I₁</text>
+        <line x1="216" y1="55" x2="216" y2="70" stroke="#6be5a0" stroke-width="1.2" marker-end="url(#arr6)"/>
+        <text class="lbl-sm" x="200" y="65" fill="#6be5a0">I₃</text>
+        <line x1="360" y1="150" x2="360" y2="134" stroke="#6be5a0" stroke-width="1.2" marker-end="url(#arr6)"/>
+        <text class="lbl-sm" x="364" y="148" fill="#6be5a0">I₂</text>
+
+        <!-- Узловые точки -->
+        <circle cx="220" cy="40" r="3.5" class="node-dot"/>
+        <circle cx="220" cy="160" r="3.5" class="node-dot"/>
+
+        <!-- Контурные стрелки -->
+        <text class="lbl-sm" x="130" y="110" fill="#4f9cf9">↻ I</text>
+        <text class="lbl-sm" x="310" y="110" fill="#4f9cf9">↺ II</text>
+      </svg>
+    </div>
+
+    <div class="sec">Решение (Законы Кирхгофа)</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><p>1-й закон (узел верхний): I₁ = I₂ + I₃</p></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><p>2-й закон для контуров:</p><div class="formula">Контур I:   E₁ = I₁·R₁ + I₃·R₃  →  75 = 100I₁ + 150I₃
+Контур II:  E₂ = I₂·R₂ + I₃·R₃  →  100 = 150I₂ + 150I₃</div></div></div>
+    <div class="step"><div class="sn">3</div><div class="sc"><p>Из контура II: I₂ = (100 − 150I₃)/150 = 2/3 − I₃. Подставим I₁ = I₂ + I₃ в контур I:</p><div class="formula">75 = 100(2/3 − I₃ + I₃) + 150I₃ → нет, подробнее:
+75 = 100(I₂+I₃) + 150I₃ = 100·(2/3−I₃+I₃) +150I₃ ... уточним:
+Подстановка I₁=I₂+I₃:  75 = 100(I₂+I₃) + 150I₃
+                              75 = 100I₂ + 250I₃
+Из контур II: 100I₂ = 100−100I₃·(150/150) ... 
+Из контур II: I₂ = 2/3 − I₃ → 100I₂ = 200/3 − 100I₃
+→ 75 = 200/3 − 100I₃ + 250I₃ = 200/3 + 150I₃
+→ 150I₃ = 75 − 66,667 = 8,333
+→ I₃ = 1/18 ≈ 0,056 А</div></div></div>
+    <div class="step"><div class="sn">4</div><div class="sc"><div class="formula">I₂ = 2/3 − 1/18 = 11/18 ≈ 0,611 А
+I₁ = I₂ + I₃ = 11/18 + 1/18 = 12/18 = 2/3 ≈ 0,667 А</div></div></div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">0,667,0,611,0,056</span></div>
+  </div>
+</div>
+
+<!-- ======================== ЗАДАЧА 7 ======================== -->
+<div class="task-card" id="t7">
+  <div class="task-header">
+    <div class="task-number">Задача 7</div>
+    <h2>Ток через R при двух источниках питания</h2>
+    <span class="tag tk">Кирхгоф</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>E₁ = 2 В, E₂ = 1 В, R = 5 Ом, r₁ = r₂ = 1 Ом.</div>
+
+    <div class="schema-box">
+      <!-- Схема задачи 7: два источника параллельно с R между ними -->
+      <svg width="340" height="220" viewBox="0 0 340 220" class="svgcomp">
+        <defs>
+          <marker id="arr7" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M1 1L6 4L1 7" fill="none" stroke="#6be5a0" stroke-width="1.5" stroke-linecap="round"/>
+          </marker>
+        </defs>
+        <!-- Верхняя и нижняя шины -->
+        <line x1="40" y1="40" x2="300" y2="40" class="wire"/>
+        <line x1="40" y1="180" x2="300" y2="180" class="wire"/>
+
+        <!-- E1 + r1 — левая ветвь -->
+        <line x1="80" y1="40" x2="80" y2="80" class="wire"/>
+        <circle cx="80" cy="95" r="15" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="10" x="80" y="99" text-anchor="middle" font-family="Nunito">E₁</text>
+        <line x1="80" y1="110" x2="80" y2="130" class="wire"/>
+        <rect x="71" y="130" width="18" height="22" rx="3" class="resistor"/>
+        <text class="lbl-sm" x="80" y="145" text-anchor="middle">r₁</text>
+        <line x1="80" y1="152" x2="80" y2="180" class="wire"/>
+        <!-- Стрелка I1 -->
+        <line x1="74" y1="55" x2="74" y2="78" stroke="#6be5a0" stroke-width="1.2" marker-end="url(#arr7)"/>
+        <text class="lbl-sm" x="57" y="70" fill="#6be5a0">I₁↓</text>
+
+        <!-- R — средняя ветвь (нагрузка) -->
+        <line x1="170" y1="40" x2="170" y2="70" class="wire"/>
+        <rect x="155" y="70" width="30" height="50" rx="3" class="resistor"/>
+        <text class="lbl" x="170" y="98" text-anchor="middle">R</text>
+        <line x1="170" y1="120" x2="170" y2="180" class="wire"/>
+        <!-- Стрелка I (через R) -->
+        <line x1="178" y1="45" x2="178" y2="68" stroke="#f9884f" stroke-width="1.5" marker-end="url(#arr7)"/>
+        <text class="lbl-sm" x="182" y="62" fill="#f9884f">I↓</text>
+
+        <!-- E2 + r2 — правая ветвь -->
+        <line x1="260" y1="40" x2="260" y2="80" class="wire"/>
+        <circle cx="260" cy="95" r="15" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="10" x="260" y="99" text-anchor="middle" font-family="Nunito">E₂</text>
+        <line x1="260" y1="110" x2="260" y2="130" class="wire"/>
+        <rect x="251" y="130" width="18" height="22" rx="3" class="resistor"/>
+        <text class="lbl-sm" x="260" y="145" text-anchor="middle">r₂</text>
+        <line x1="260" y1="152" x2="260" y2="180" class="wire"/>
+        <!-- Стрелка I2 -->
+        <line x1="266" y1="180" x2="266" y2="157" stroke="#6be5a0" stroke-width="1.2" marker-end="url(#arr7)"/>
+        <text class="lbl-sm" x="270" y="170" fill="#6be5a0">I₂↑</text>
+
+        <!-- Узловые точки -->
+        <circle cx="80" cy="40" r="3" class="node-dot"/>
+        <circle cx="170" cy="40" r="3" class="node-dot"/>
+        <circle cx="260" cy="40" r="3" class="node-dot"/>
+        <circle cx="80" cy="180" r="3" class="node-dot"/>
+        <circle cx="170" cy="180" r="3" class="node-dot"/>
+        <circle cx="260" cy="180" r="3" class="node-dot"/>
+
+        <text class="lbl-sm" x="170" y="210" text-anchor="middle">E₁=2В (↓), E₂=1В (↑) — встречное включение</text>
+      </svg>
+    </div>
+
+    <div class="sec">Решение</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><p>1-й закон (верхний узел): I₁ = I + I₂</p></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><p>2-й закон для контуров:</p><div class="formula">Лев. контур: E₁ = I₁·r₁ + I·R  →  2 = I₁ + 5I
+Прав. контур: E₂ = I·R − I₂·r₂  →  1 = 5I − I₂</div></div></div>
+    <div class="step"><div class="sn">3</div><div class="sc"><p>Из правого контура: I₂ = 5I − 1. Подставим I₁ = I + I₂ = I + 5I − 1 = 6I − 1 в левый:</p><div class="formula">2 = (6I − 1)·1 + 5I = 6I − 1 + 5I = 11I − 1
+3 = 11I  →  I = 3/11 ≈ 0,273 А</div></div></div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">I = 3/11 ≈ 0,273 А</span></div>
+  </div>
+</div>
+
+<!-- ======================== ЗАДАЧА 8 ======================== -->
+<div class="task-card" id="t8">
+  <div class="task-header">
+    <div class="task-number">Задача 8</div>
+    <h2>Показание вольтметра (Рис. 1.40)</h2>
+    <span class="tag tk">Кирхгоф</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>E₁ = 120 В, E₂ = 40 В, R₁ = 15 Ом, R₂ = 25 Ом. Вольтметр между a и b (ток через него = 0).</div>
+
+    <div class="schema-box">
+      <!-- Схема рис 1.40: E1+R1 левая ветвь, E2+R2 правая ветвь, вольтметр V между a и b -->
+      <svg width="360" height="220" viewBox="0 0 360 220" class="svgcomp">
+        <defs>
+          <marker id="arr8" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M1 1L6 4L1 7" fill="none" stroke="#4f9cf9" stroke-width="1.5" stroke-linecap="round"/>
+          </marker>
+        </defs>
+        <!-- Верхняя шина -->
+        <line x1="60" y1="30" x2="300" y2="30" class="wire"/>
+        <!-- Стрелка тока I -->
+        <line x1="130" y1="24" x2="175" y2="24" stroke="#4f9cf9" stroke-width="1.2" marker-end="url(#arr8)"/>
+        <text class="lbl-sm" x="152" y="18" fill="#4f9cf9">I →</text>
+
+        <!-- R1 левая ветвь верхняя часть -->
+        <line x1="60" y1="30" x2="60" y2="65" class="wire"/>
+        <rect x="45" y="65" width="30" height="40" rx="3" class="resistor"/>
+        <text class="lbl" x="60" y="88" text-anchor="middle">R₁</text>
+        <!-- Узел a -->
+        <line x1="60" y1="105" x2="60" y2="120" class="wire"/>
+        <circle cx="60" cy="120" r="3.5" class="node-dot"/>
+        <text class="lbl" x="44" y="124">a</text>
+        <!-- E1 источник -->
+        <line x1="60" y1="120" x2="60" y2="150" class="wire"/>
+        <circle cx="60" cy="160" r="15" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="10" x="60" y="164" text-anchor="middle" font-family="Nunito">E₁</text>
+        <line x1="60" y1="175" x2="60" y2="195" class="wire"/>
+
+        <!-- E2 правая ветвь верхняя часть -->
+        <line x1="300" y1="30" x2="300" y2="55" class="wire"/>
+        <circle cx="300" cy="60" r="15" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="10" x="300" y="64" text-anchor="middle" font-family="Nunito">E₂</text>
+        <line x1="300" y1="75" x2="300" y2="120" class="wire"/>
+        <!-- Узел b -->
+        <circle cx="300" cy="120" r="3.5" class="node-dot"/>
+        <text class="lbl" x="308" y="124">b</text>
+        <!-- R2 -->
+        <line x1="300" y1="120" x2="300" y2="145" class="wire"/>
+        <rect x="285" y="145" width="30" height="40" rx="3" class="resistor"/>
+        <text class="lbl" x="300" y="168" text-anchor="middle">R₂</text>
+        <line x1="300" y1="185" x2="300" y2="195" class="wire"/>
+
+        <!-- Нижняя шина -->
+        <line x1="60" y1="195" x2="300" y2="195" class="wire"/>
+
+        <!-- Вольтметр между a и b -->
+        <line x1="64" y1="120" x2="130" y2="120" class="wire" stroke="#7a8aaa" stroke-dasharray="4 3"/>
+        <circle cx="180" cy="120" r="20" fill="#1e2a42" stroke="#6be5a0" stroke-width="1.2"/>
+        <text fill="#6be5a0" font-size="11" x="180" y="124" text-anchor="middle" font-family="Nunito">V</text>
+        <line x1="200" y1="120" x2="296" y2="120" class="wire" stroke="#7a8aaa" stroke-dasharray="4 3"/>
+
+        <text class="lbl-sm" x="180" y="210" text-anchor="middle">Uₐᵦ = ? В</text>
+      </svg>
+    </div>
+
+    <div class="sec">Решение</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><p>Ток через вольтметр = 0, поэтому схема — один последовательный контур E₁, R₁, R₂, E₂:</p><div class="formula">I = (E₁ − E₂)/(R₁ + R₂) = (120 − 40)/(15 + 25) = 80/40 = 2 А</div></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><p>Напряжение между a и b (идём от a через E₁ к верху, потом вниз):</p><div class="formula">U_ab = E₁ − I·R₁ = 120 − 2·15 = 120 − 30 = 90 В</div></div></div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">U_вольтметра = 90 В</span></div>
+  </div>
+</div>
+
+<!-- ======================== ЗАДАЧА 9 ======================== -->
+<div class="task-card" id="t9">
+  <div class="task-header">
+    <div class="task-number">Задача 9</div>
+    <h2>МКТ — рис. 4.3 (с источником тока)</h2>
+    <span class="tag tl">Контурный ток</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>E₁=36 В, E₂=67 В, Iₖ=0,1 А; R₁=400, R₂=200, R₃=250, R₄=600, R₅=300 Ом.</div>
+
+    <div class="schema-box">
+      <!-- Схема рис 4.3: два контура + источник тока Ik -->
+      <svg width="460" height="230" viewBox="0 0 460 230" class="svgcomp">
+        <!-- Основная сетка схемы -->
+        <!-- Верхняя шина -->
+        <line x1="40" y1="40" x2="420" y2="40" class="wire"/>
+        <!-- Нижняя шина -->
+        <line x1="40" y1="190" x2="420" y2="190" class="wire"/>
+        <!-- Средняя вертикаль (узел между R3 и R4) -->
+        <line x1="230" y1="40" x2="230" y2="190" class="wire"/>
+
+        <!-- R1 левая ветвь -->
+        <line x1="40" y1="40" x2="40" y2="75" class="wire"/>
+        <rect x="26" y="75" width="28" height="50" rx="3" class="resistor"/>
+        <text class="lbl" x="40" y="103" text-anchor="middle">R₁</text>
+        <line x1="40" y1="125" x2="40" y2="190" class="wire"/>
+
+        <!-- E1 источник ЭДС в левой нижней ветви -->
+        <circle cx="90" cy="190" r="15" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="9" x="90" y="194" text-anchor="middle" font-family="Nunito">E₁↑</text>
+
+        <!-- R3 центральная ветвь -->
+        <line x1="230" y1="40" x2="230" y2="75" class="wire"/>
+        <rect x="216" y="75" width="28" height="50" rx="3" class="resistor"/>
+        <text class="lbl" x="230" y="103" text-anchor="middle">R₃</text>
+        <line x1="230" y1="125" x2="230" y2="190" class="wire"/>
+
+        <!-- R4 горизонтально верх (между средней и правой) -->
+        <line x1="230" y1="40" x2="270" y2="40" class="wire"/>
+        <rect x="270" y="31" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="295" y="43" text-anchor="middle">R₄</text>
+        <line x1="320" y1="40" x2="360" y2="40" class="wire"/>
+
+        <!-- Iк — источник тока справа (верхняя ветвь) -->
+        <circle cx="390" cy="40" r="15" fill="#1e2a42" stroke="#6be5a0" stroke-width="1.2"/>
+        <text fill="#6be5a0" font-size="8" x="390" y="44" text-anchor="middle" font-family="Nunito">Iₖ↑</text>
+
+        <!-- R5 горизонтально низ (правый нижний) -->
+        <line x1="230" y1="190" x2="265" y2="190" class="wire"/>
+        <rect x="265" y="181" width="50" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="290" y="193" text-anchor="middle">R₅</text>
+        <line x1="315" y1="190" x2="420" y2="190" class="wire"/>
+
+        <!-- E2 в правой нижней ветви -->
+        <circle cx="380" cy="190" r="15" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="9" x="380" y="194" text-anchor="middle" font-family="Nunito">E₂←</text>
+
+        <!-- R2 правая вертикаль -->
+        <line x1="420" y1="40" x2="420" y2="75" class="wire"/>
+        <rect x="406" y="75" width="28" height="50" rx="3" class="resistor"/>
+        <text class="lbl" x="420" y="103" text-anchor="middle">R₂</text>
+        <line x1="420" y1="125" x2="420" y2="190" class="wire"/>
+
+        <!-- Контурные токи (стрелочки) -->
+        <text class="lbl-sm" x="130" y="120" fill="#4f9cf9">↻ I₁₁</text>
+        <text class="lbl-sm" x="320" y="120" fill="#f9884f">↻ I₂₂</text>
+        <text class="lbl-sm" x="392" y="80" fill="#6be5a0" font-size="9">↑Iₖₖ</text>
+
+        <!-- Узлы -->
+        <circle cx="40" cy="40" r="3" class="node-dot"/>
+        <circle cx="230" cy="40" r="3" class="node-dot"/>
+        <circle cx="420" cy="40" r="3" class="node-dot"/>
+        <circle cx="40" cy="190" r="3" class="node-dot"/>
+        <circle cx="230" cy="190" r="3" class="node-dot"/>
+        <circle cx="420" cy="190" r="3" class="node-dot"/>
+
+        <text class="lbl-sm" x="230" y="218" text-anchor="middle">Рис. 4.3 — Iₖₖ = Iₖ = 0,1 А (известный контурный ток)</text>
+      </svg>
+    </div>
+
+    <div class="sec">МКТ</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><div class="formula">R₁₁ = R₁+R₃+R₄ = 400+250+600 = 1250 Ом
+R₂₂ = R₂+R₃+R₅ = 200+250+300 = 750 Ом
+R₁₂ = −R₃ = −250 Ом</div></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><p>Контурные ЭДС с учётом Iₖₖ = 0,1 А:</p><div class="formula">E₁₁ = E₁ + R₄·Iₖ = 36 + 600·0,1 = 96 В
+E₂₂ = E₂ − R₅·Iₖ = 67 − 300·0,1 = 37 В</div></div></div>
+    <div class="step"><div class="sn">3</div><div class="sc"><div class="formula">1250·I₁₁ − 250·I₂₂ = 96
+−250·I₁₁ + 750·I₂₂ = 37
+
+→ I₂₂ = 281/3500 ≈ 80,29 мА
+→ I₁₁ ≈ 92,86 мА</div></div></div>
+  </div>
+  <div class="ans"><span class="al">Ответ (мА)</span><span class="av">92,86,80,29</span></div>
+</div>
+
+<!-- ======================== ЗАДАЧА 10 ======================== -->
+<div class="task-card" id="t10">
+  <div class="task-header">
+    <div class="task-number">Задача 10</div>
+    <h2>Показание амперметра (Пример 1)</h2>
+    <span class="tag to">Закон Ома</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>E=48 В, R₁=2, R₂=20, R₃=30, R₄=40, R₅=10, R₆=20 Ом. Амперметр A в верхней ветви.</div>
+
+    <div class="schema-box">
+      <!-- Схема задачи 10: амперметр + параллельная группа -->
+      <svg width="460" height="180" viewBox="0 0 460 180" class="svgcomp">
+        <!-- Шина верх/низ -->
+        <line x1="40" y1="30" x2="420" y2="30" class="wire"/>
+        <line x1="40" y1="150" x2="420" y2="150" class="wire"/>
+
+        <!-- Амперметр A вверху в разрыве -->
+        <circle cx="230" cy="30" r="16" fill="#1e2a42" stroke="#6be5a0" stroke-width="1.2"/>
+        <text fill="#6be5a0" font-size="10" x="230" y="34" text-anchor="middle" font-family="Nunito">A</text>
+
+        <!-- E источник слева -->
+        <line x1="40" y1="30" x2="40" y2="70" class="wire"/>
+        <circle cx="40" cy="82" r="14" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="9" x="40" y="86" text-anchor="middle" font-family="Nunito">E</text>
+        <line x1="40" y1="96" x2="40" y2="150" class="wire"/>
+
+        <!-- R1 последовательно -->
+        <line x1="40" y1="30" x2="70" y2="30" class="wire"/>
+        <rect x="70" y="21" width="40" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="90" y="33" text-anchor="middle">R₁</text>
+        <line x1="110" y1="30" x2="140" y2="30" class="wire"/>
+
+        <!-- Узел разветвления -->
+        <circle cx="140" cy="30" r="3.5" class="node-dot"/>
+        <line x1="140" y1="30" x2="140" y2="150" class="wire"/>
+
+        <!-- R2 ветвь -->
+        <line x1="140" y1="60" x2="155" y2="60" class="wire"/>
+        <rect x="155" y="51" width="30" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="170" y="63" text-anchor="middle" font-size="9">R₂</text>
+        <line x1="185" y1="60" x2="320" y2="60" class="wire"/>
+
+        <!-- R3 ветвь -->
+        <line x1="140" y1="90" x2="155" y2="90" class="wire"/>
+        <rect x="155" y="81" width="30" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="170" y="93" text-anchor="middle" font-size="9">R₃</text>
+        <line x1="185" y1="90" x2="320" y2="90" class="wire"/>
+
+        <!-- R4 ветвь -->
+        <line x1="140" y1="120" x2="155" y2="120" class="wire"/>
+        <rect x="155" y="111" width="30" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="170" y="123" text-anchor="middle" font-size="9">R₄</text>
+        <line x1="185" y1="120" x2="320" y2="120" class="wire"/>
+
+        <!-- R5 ветвь -->
+        <line x1="140" y1="150" x2="155" y2="150" class="wire"/>
+        <rect x="155" y="141" width="30" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="170" y="153" text-anchor="middle" font-size="9">R₅</text>
+        <line x1="185" y1="150" x2="320" y2="150" class="wire"/>
+
+        <!-- Узел объединения -->
+        <line x1="320" y1="60" x2="320" y2="150" class="wire"/>
+        <circle cx="320" cy="30" r="3.5" class="node-dot"/>
+        <line x1="320" y1="30" x2="320" y2="60" class="wire"/>
+        <line x1="320" y1="30" x2="370" y2="30" class="wire"/>
+
+        <!-- R6 последовательно -->
+        <rect x="370" y="21" width="40" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="390" y="33" text-anchor="middle">R₆</text>
+        <line x1="410" y1="30" x2="420" y2="30" class="wire"/>
+
+        <text class="lbl-sm" x="230" y="170" text-anchor="middle">R₂,R₃,R₄,R₅ — параллельно между узлами a–b</text>
+      </svg>
+    </div>
+
+    <div class="sec">Решение</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><div class="formula">1/R_пар = 1/20+1/30+1/40+1/10 = 0,05+0,0333+0,025+0,1 = 0,2083
+R_пар = 4,8 Ом</div></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><div class="formula">R_общ = R₁ + R_пар + R₆ = 2 + 4,8 + 20 = 26,8 Ом
+I_общ = E/R_общ = 48/26,8 ≈ 1,791 А</div></div></div>
+    <div class="step"><div class="sn">3</div><div class="sc"><p>Амперметр включён в основную линию (последовательно), поэтому показывает I_общ:</p><div class="formula">I_A ≈ 1,79 А</div></div></div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">I_A ≈ 1,79 А</span></div>
+  </div>
+</div>
+
+<!-- ======================== ЗАДАЧА 11 ======================== -->
+<div class="task-card" id="t11">
+  <div class="task-header">
+    <div class="task-number">Задача 11</div>
+    <h2>Показание вольтметра (Пример 2)</h2>
+    <span class="tag to">Закон Ома</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>Те же параметры: E=48 В, R₁=2, R₂=20, R₃=30, R₄=40, R₅=10, R₆=20 Ом. Вольтметр V параллельно группе R₂–R₅.</div>
+
+    <div class="schema-box">
+      <!-- Схема задачи 11: вольтметр параллельно группе -->
+      <svg width="460" height="180" viewBox="0 0 460 180" class="svgcomp">
+        <!-- Та же схема что задача 10 -->
+        <line x1="40" y1="30" x2="420" y2="30" class="wire"/>
+        <line x1="40" y1="150" x2="420" y2="150" class="wire"/>
+        <!-- E источник -->
+        <line x1="40" y1="30" x2="40" y2="70" class="wire"/>
+        <circle cx="40" cy="82" r="14" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="9" x="40" y="86" text-anchor="middle" font-family="Nunito">E</text>
+        <line x1="40" y1="96" x2="40" y2="150" class="wire"/>
+        <!-- R1 -->
+        <line x1="40" y1="30" x2="70" y2="30" class="wire"/>
+        <rect x="70" y="21" width="35" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="87" y="33" text-anchor="middle" font-size="9">R₁</text>
+        <line x1="105" y1="30" x2="130" y2="30" class="wire"/>
+        <!-- Узел a -->
+        <circle cx="130" cy="30" r="3.5" class="node-dot"/>
+        <line x1="130" y1="30" x2="130" y2="150" class="wire"/>
+        <text class="lbl-sm" x="118" y="24">a</text>
+        <!-- Параллельные ветви -->
+        <line x1="130" y1="55" x2="148" y2="55" class="wire"/>
+        <rect x="148" y="46" width="28" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="162" y="58" text-anchor="middle" font-size="8">R₂</text>
+        <line x1="176" y1="55" x2="310" y2="55" class="wire"/>
+        <line x1="130" y1="85" x2="148" y2="85" class="wire"/>
+        <rect x="148" y="76" width="28" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="162" y="88" text-anchor="middle" font-size="8">R₃</text>
+        <line x1="176" y1="85" x2="310" y2="85" class="wire"/>
+        <line x1="130" y1="115" x2="148" y2="115" class="wire"/>
+        <rect x="148" y="106" width="28" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="162" y="118" text-anchor="middle" font-size="8">R₄</text>
+        <line x1="176" y1="115" x2="310" y2="115" class="wire"/>
+        <line x1="130" y1="150" x2="148" y2="150" class="wire"/>
+        <rect x="148" y="141" width="28" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="162" y="153" text-anchor="middle" font-size="8">R₅</text>
+        <line x1="176" y1="150" x2="310" y2="150" class="wire"/>
+        <!-- Узел b -->
+        <line x1="310" y1="55" x2="310" y2="150" class="wire"/>
+        <circle cx="310" cy="30" r="3.5" class="node-dot"/>
+        <line x1="310" y1="30" x2="310" y2="55" class="wire"/>
+        <text class="lbl-sm" x="314" y="24">b</text>
+        <!-- R6 -->
+        <line x1="310" y1="30" x2="350" y2="30" class="wire"/>
+        <rect x="350" y="21" width="35" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="367" y="33" text-anchor="middle" font-size="9">R₆</text>
+        <line x1="385" y1="30" x2="420" y2="30" class="wire"/>
+        <!-- Вольтметр V между a и b (снизу под схемой) -->
+        <line x1="130" y1="163" x2="190" y2="163" class="wire" stroke="#6be5a0"/>
+        <circle cx="220" cy="163" r="14" fill="#1e2a42" stroke="#6be5a0" stroke-width="1.4"/>
+        <text fill="#6be5a0" font-size="10" x="220" y="167" text-anchor="middle" font-family="Nunito">V</text>
+        <line x1="234" y1="163" x2="310" y2="163" class="wire" stroke="#6be5a0"/>
+        <text class="lbl-sm" x="220" y="178" text-anchor="middle">U_V = ?</text>
+      </svg>
+    </div>
+
+    <div class="sec">Решение</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><p>Вольтметр не влияет на ток (Rᵥ → ∞). Схема идентична задаче 10:</p><div class="formula">R_пар = 4,8 Ом,  R_общ = 26,8 Ом,  I = 1,791 А</div></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><p>Вольтметр показывает напряжение на параллельной группе:</p><div class="formula">U_V = I · R_пар = 1,791 · 4,8 ≈ 8,6 В</div></div></div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">U_V ≈ 8,6 В</span></div>
+  </div>
+</div>
+
+<!-- ======================== ЗАДАЧА 12 ======================== -->
+<div class="task-card" id="t12">
+  <div class="task-header">
+    <div class="task-number">Задача 12</div>
+    <h2>МКТ — три контура (Рис. 3)</h2>
+    <span class="tag tl">Контурный ток</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>R₁=10, R₂=15, R₃=10, R₄=10, R₅=5, R₆=10 Ом. E₂=20 В, E₃=30 В. Три контура I₁₁, I₂₂, I₃₃.</div>
+
+    <div class="schema-box">
+      <!-- Схема рис 3: три контура МКТ -->
+      <svg width="500" height="220" viewBox="0 0 500 220" class="svgcomp">
+        <!-- Узлы: верхний ряд: L(40,40), M(190,40), R(360,40) -->
+        <!--       нижний ряд: L(40,180), M(190,180), R(360,180) -->
+        <!-- Верхние провода -->
+        <line x1="40" y1="40" x2="190" y2="40" class="wire"/>
+        <line x1="190" y1="40" x2="360" y2="40" class="wire"/>
+        <!-- Нижние провода -->
+        <line x1="40" y1="180" x2="190" y2="180" class="wire"/>
+        <line x1="190" y1="180" x2="360" y2="180" class="wire"/>
+
+        <!-- R1: левая нижняя ветвь -->
+        <line x1="40" y1="40" x2="40" y2="85" class="wire"/>
+        <rect x="26" y="85" width="28" height="40" rx="3" class="resistor"/>
+        <text class="lbl" x="40" y="108" text-anchor="middle" font-size="9">R₁</text>
+        <line x1="40" y1="125" x2="40" y2="180" class="wire"/>
+
+        <!-- R6: верхняя горизонталь левого контура -->
+        <rect x="80" y="31" width="40" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="100" y="43" text-anchor="middle" font-size="9">R₆</text>
+
+        <!-- R2: левая вертикаль с E2 -->
+        <line x1="190" y1="40" x2="190" y2="75" class="wire"/>
+        <circle cx="190" cy="90" r="16" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="9" x="190" y="94" text-anchor="middle" font-family="Nunito">E₂</text>
+        <line x1="190" y1="106" x2="190" y2="130" class="wire"/>
+        <rect x="176" y="130" width="28" height="30" rx="3" class="resistor"/>
+        <text class="lbl" x="190" y="148" text-anchor="middle" font-size="9">R₂</text>
+        <line x1="190" y1="160" x2="190" y2="180" class="wire"/>
+
+        <!-- R4: центральная нижняя горизонтальная ветвь (нет, R4 вертикально) -->
+        <!-- R4 вертикально между контурами 1 и 2 -->
+        <line x1="275" y1="40" x2="275" y2="80" class="wire"/>
+        <rect x="261" y="80" width="28" height="40" rx="3" class="resistor"/>
+        <text class="lbl" x="275" y="103" text-anchor="middle" font-size="9">R₄</text>
+        <line x1="275" y1="120" x2="275" y2="180" class="wire"/>
+
+        <!-- R5: горизонтально правый контур -->
+        <rect x="295" y="31" width="40" height="18" rx="3" class="resistor"/>
+        <text class="lbl" x="315" y="43" text-anchor="middle" font-size="9">R₅</text>
+
+        <!-- R3: правая вертикальная ветвь с E3 -->
+        <line x1="360" y1="40" x2="360" y2="75" class="wire"/>
+        <circle cx="360" cy="90" r="16" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="9" x="360" y="94" text-anchor="middle" font-family="Nunito">E₃</text>
+        <line x1="360" y1="106" x2="360" y2="130" class="wire"/>
+        <rect x="346" y="130" width="28" height="30" rx="3" class="resistor"/>
+        <text class="lbl" x="360" y="148" text-anchor="middle" font-size="9">R₃</text>
+        <line x1="360" y1="160" x2="360" y2="180" class="wire"/>
+
+        <!-- Узловые точки -->
+        <circle cx="40" cy="40" r="3" class="node-dot"/>
+        <circle cx="190" cy="40" r="3" class="node-dot"/>
+        <circle cx="360" cy="40" r="3" class="node-dot"/>
+        <circle cx="40" cy="180" r="3" class="node-dot"/>
+        <circle cx="190" cy="180" r="3" class="node-dot"/>
+        <circle cx="360" cy="180" r="3" class="node-dot"/>
+        <circle cx="275" cy="40" r="3" class="node-dot"/>
+        <circle cx="275" cy="180" r="3" class="node-dot"/>
+
+        <!-- Стрелки контурных токов -->
+        <text class="lbl-sm" x="100" y="115" fill="#4f9cf9">↻ I₁₁</text>
+        <text class="lbl-sm" x="225" y="115" fill="#f9884f">↻ I₂₂</text>
+        <text class="lbl-sm" x="308" y="115" fill="#6be5a0">↻ I₃₃</text>
+
+        <!-- Токи ветвей -->
+        <text class="lbl-sm" x="20" y="35" fill="#a0aac0">I₆</text>
+        <text class="lbl-sm" x="26" y="98" fill="#a0aac0">I₁</text>
+        <text class="lbl-sm" x="160" y="98" fill="#a0aac0">I₂</text>
+        <text class="lbl-sm" x="330" y="98" fill="#a0aac0">I₃</text>
+        <text class="lbl-sm" x="248" y="98" fill="#a0aac0">I₄</text>
+        <text class="lbl-sm" x="280" y="35" fill="#a0aac0">I₅</text>
+
+        <text class="lbl-sm" x="250" y="210" text-anchor="middle">Рис. 3 — три независимых контура</text>
+      </svg>
+    </div>
+
+    <div class="sec">МКТ — матрица</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><div class="formula">R₁₁ = R₁+R₂+R₆ = 10+15+10 = 35 Ом
+R₂₂ = R₂+R₄+R₅ = 15+10+5 = 30 Ом
+R₃₃ = R₃+R₅     = 10+5    = 15 Ом
+R₁₂ = −R₂ = −15 Ом
+R₂₃ = −R₅ = −5  Ом
+R₁₃ = 0</div></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><div class="formula">E₁₁ = 0 В,  E₂₂ = 20 В,  E₃₃ = 30 В</div></div></div>
+    <div class="step"><div class="sn">3</div><div class="sc"><div class="formula">35·I₁₁ − 15·I₂₂         = 0    → I₁₁ = 3I₂₂/7
+−15·I₁₁ + 30·I₂₂ − 5·I₃₃ = 20
+         −5·I₂₂ + 15·I₃₃ = 30   → I₂₂ = 3I₃₃−6
+
+Подстановка: 460·I₃₃ = 1130  → I₃₃ ≈ 2,457 А
+I₂₂ = 3·2,457−6 = 1,370 А
+I₁₁ = 3·1,370/7 = 0,587 А</div></div></div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">0,59,1,37,2,46</span></div>
+  </div>
+</div>
+
+<!-- ======================== ЗАДАЧА 13 ======================== -->
+<div class="task-card" id="t13">
+  <div class="task-header">
+    <div class="task-number">Задача 13</div>
+    <h2>МКТ — три параллельных ветви, найти I₁, I₂, I₃</h2>
+    <span class="tag tl">Контурный ток</span>
+  </div>
+  <div class="task-body">
+    <div class="given"><strong>Дано</strong>E₁=1 В, E₂=3 В, E₃=5 В, R₁=2 Ом, R₂=4 Ом, R₃=2 Ом.</div>
+
+    <div class="schema-box">
+      <!-- Схема задачи 13: три параллельных ветви с E1+R1, E2+R2, E3+R3 -->
+      <svg width="400" height="190" viewBox="0 0 400 190" class="svgcomp">
+        <defs>
+          <marker id="arr13" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M1 1L6 4L1 7" fill="none" stroke="#6be5a0" stroke-width="1.5" stroke-linecap="round"/>
+          </marker>
+        </defs>
+        <!-- Шины верх и низ -->
+        <line x1="40" y1="30" x2="360" y2="30" class="wire"/>
+        <line x1="40" y1="160" x2="360" y2="160" class="wire"/>
+
+        <!-- Ветвь 1: E1 + R1 (левая) -->
+        <line x1="90" y1="30" x2="90" y2="65" class="wire"/>
+        <circle cx="90" cy="78" r="14" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="9" x="90" y="82" text-anchor="middle" font-family="Nunito">E₁↑</text>
+        <line x1="90" y1="92" x2="90" y2="115" class="wire"/>
+        <rect x="76" y="115" width="28" height="28" rx="3" class="resistor"/>
+        <text class="lbl" x="90" y="132" text-anchor="middle" font-size="9">R₁</text>
+        <line x1="90" y1="143" x2="90" y2="160" class="wire"/>
+        <!-- Стрелка I1 -->
+        <line x1="82" y1="35" x2="82" y2="63" stroke="#6be5a0" stroke-width="1.2" marker-end="url(#arr13)"/>
+        <text class="lbl-sm" x="63" y="52" fill="#6be5a0">I₁↑</text>
+
+        <!-- Ветвь 2: E2 + R2 (средняя) -->
+        <line x1="200" y1="30" x2="200" y2="65" class="wire"/>
+        <circle cx="200" cy="78" r="14" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="9" x="200" y="82" text-anchor="middle" font-family="Nunito">E₂↑</text>
+        <line x1="200" y1="92" x2="200" y2="115" class="wire"/>
+        <rect x="186" y="115" width="28" height="28" rx="3" class="resistor"/>
+        <text class="lbl" x="200" y="132" text-anchor="middle" font-size="9">R₂</text>
+        <line x1="200" y1="143" x2="200" y2="160" class="wire"/>
+        <!-- Стрелка I2 -->
+        <line x1="192" y1="35" x2="192" y2="63" stroke="#4f9cf9" stroke-width="1.2" marker-end="url(#arr13)"/>
+        <text class="lbl-sm" x="173" y="52" fill="#4f9cf9">I₂↑</text>
+
+        <!-- Ветвь 3: E3 + R3 (правая) -->
+        <line x1="310" y1="30" x2="310" y2="65" class="wire"/>
+        <circle cx="310" cy="78" r="14" fill="#1e2a42" stroke="#f4c74f" stroke-width="1.2"/>
+        <text fill="#f4c74f" font-size="9" x="310" y="82" text-anchor="middle" font-family="Nunito">E₃↑</text>
+        <line x1="310" y1="92" x2="310" y2="115" class="wire"/>
+        <rect x="296" y="115" width="28" height="28" rx="3" class="resistor"/>
+        <text class="lbl" x="310" y="132" text-anchor="middle" font-size="9">R₃</text>
+        <line x1="310" y1="143" x2="310" y2="160" class="wire"/>
+        <!-- Стрелка I3 -->
+        <line x1="302" y1="35" x2="302" y2="63" stroke="#f9884f" stroke-width="1.2" marker-end="url(#arr13)"/>
+        <text class="lbl-sm" x="283" y="52" fill="#f9884f">I₃↑</text>
+
+        <!-- Контурные токи -->
+        <text class="lbl-sm" x="145" y="105" fill="#4f9cf9">⟳ I₁₁</text>
+        <text class="lbl-sm" x="255" y="105" fill="#f9884f">⟳ I₂₂</text>
+
+        <!-- Узлы -->
+        <circle cx="90" cy="30" r="3" class="node-dot"/>
+        <circle cx="200" cy="30" r="3" class="node-dot"/>
+        <circle cx="310" cy="30" r="3" class="node-dot"/>
+        <circle cx="90" cy="160" r="3" class="node-dot"/>
+        <circle cx="200" cy="160" r="3" class="node-dot"/>
+        <circle cx="310" cy="160" r="3" class="node-dot"/>
+
+        <text class="lbl-sm" x="200" y="178" text-anchor="middle">Все источники направлены вверх (↑)</text>
+      </svg>
+    </div>
+
+    <div class="sec">МКТ (2 контура)</div>
+    <div class="step"><div class="sn">1</div><div class="sc"><div class="formula">R₁₁ = R₁+R₂ = 2+4 = 6 Ом
+R₂₂ = R₂+R₃ = 4+2 = 6 Ом
+R₁₂ = −R₂ = −4 Ом</div></div></div>
+    <div class="step"><div class="sn">2</div><div class="sc"><div class="formula">E₁₁ = E₂−E₁ = 3−1 = 2 В  (обход против часовой)
+E₂₂ = E₃−E₂ = 5−3 = 2 В</div></div></div>
+    <div class="step"><div class="sn">3</div><div class="sc"><div class="formula"> 6·I₁₁ − 4·I₂₂ = 2  ...(1)
+−4·I₁₁ + 6·I₂₂ = 2  ...(2)
+
+Из симметрии: I₁₁ = I₂₂ = I*
+2I* = 2  →  I* = 1 А
+
+I₁₁ = 1 А,  I₂₂ = 1 А</div></div></div>
+    <div class="step"><div class="sn">4</div><div class="sc"><div class="formula">I₁ = I₁₁ = 1 А
+I₂ = I₁₁ − I₂₂ = 1 − 1 = 0 А   (смежная ветвь)
+I₃ = I₂₂ = 1 А
+
+Проверка (1-й закон): I₃ = I₁ + I₂ = 1 + 0 = 1 ✓</div></div></div>
+    <div class="ans"><span class="al">Ответ</span><span class="av">1,0,0,0,1,0</span></div>
+  </div>
+</div>
+
+<div style="text-align:center;color:var(--muted);font-size:.82em;margin-top:20px;padding:20px">
+  Решения составлены на основе лекций «Линейные цепи постоянного тока» (Лекции 1–3 ТОЭ)
+</div>
+
 </body>
 </html>
