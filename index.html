@@ -14,7 +14,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;font-size:16px;line-height:1.7;padding:40px 20px;position:relative}
 
-  /* ====================== ФИКСИРОВАННАЯ НАВИГАЦИЯ ====================== */
+  /* ====================== НАВИГАЦИЯ ====================== */
   .sidebar {
     position: fixed;
     left: 20px;
@@ -30,8 +30,52 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     transition: transform 0.3s ease;
   }
+
   .sidebar.hidden {
     transform: translateX(-280px);
+  }
+
+  /* Кнопка меню */
+  .menu-toggle {
+    position: fixed;
+    top: 25px;
+    left: 20px;
+    z-index: 1100;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.2s;
+  }
+  .menu-toggle:hover { background: var(--surface2); }
+
+  /* На ПК — кнопка скрыта, меню всегда видно */
+  @media (min-width: 993px) {
+    .menu-toggle {
+      display: none;
+    }
+    .sidebar {
+      transform: none !important;
+      width: 240px;
+    }
+    body {
+      padding-left: 280px;
+    }
+  }
+
+  /* На мобильных — кнопка видна */
+  @media (max-width: 992px) {
+    body {
+      padding-left: 20px;
+    }
   }
 
   .sidebar h2 {
@@ -77,36 +121,17 @@
     flex-shrink: 0;
   }
 
-  /* Кнопка меню */
-  .menu-toggle {
-    position: fixed;
-    top: 25px;
-    left: 20px;
-    z-index: 1100;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--accent);
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: all 0.2s;
-  }
-  .menu-toggle:hover { background: var(--surface2); }
-
   .page-header {
     text-align:center;
     margin-bottom:56px;
-    padding:50px 40px 50px 80px;
+    padding:50px 40px;
     background:linear-gradient(135deg,#1a1f35 0%,#0f1117 100%);
     border:1px solid var(--border);
     border-radius:20px;
   }
+
+  .toc{display:none}
+  .task-card{max-width:900px;margin:0 auto 44px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;scroll-margin-top:80px}
 
   .toc{display:none}
   .task-card{max-width:900px;margin:0 auto 44px;background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;scroll-margin-top:80px}
@@ -145,6 +170,7 @@
   .node-dot{fill:#7a8aaa}
   .lbl{fill:#c0cfee;font-size:11px;font-family:'Nunito',sans-serif}
   .lbl-sm{fill:#8892b0;font-size:10px;font-family:'Nunito',sans-serif}</style>
+</style>
 </head>
 <body>
 
@@ -635,7 +661,7 @@ R_низ  = 2R + 5R = 7R = 28 кОм</div></div></div>
     <div class="step"><div class="sn">3</div><div class="sc"><p>Из контура II: I₂ = (100 − 150I₃)/150 = 2/3 − I₃. Подставим I₁ = I₂ + I₃ в контур I:</p><div class="formula">75 = 100(2/3 − I₃ + I₃) + 150I₃ → нет, подробнее:
 75 = 100(I₂+I₃) + 150I₃ = 100·(2/3−I₃+I₃) +150I₃ ... уточним:
 Подстановка I₁=I₂+I₃:  75 = 100(I₂+I₃) + 150I₃
-                              75 = 100I₂ + 250I₃
+            75 = 100I₂ + 250I₃
 Из контур II: 100I₂ = 100−100I₃·(150/150) ...
 Из контур II: I₂ = 2/3 − I₃ → 100I₂ = 200/3 − 100I₃
 → 75 = 200/3 − 100I₃ + 250I₃ = 200/3 + 150I₃
@@ -1141,16 +1167,16 @@ I_общ = E/R_общ = 48/26,8 ≈ 1,791 А</div></div></div>
     <div class="sec">МКТ — матрица</div>
     <div class="step"><div class="sn">1</div><div class="sc"><div class="formula">R₁₁ = R₁+R₂+R₆ = 10+15+10 = 35 Ом
 R₂₂ = R₂+R₄+R₅ = 15+10+5 = 30 Ом
-R₃₃ = R₃+R₅     = 10+5    = 15 Ом
+R₃₃ = R₃+R₅ = 10+5 = 15 Ом
 R₁₂ = −R₂ = −15 Ом
 R₂₃ = −R₅ = −5  Ом
 R₁₃ = 0</div></div></div>
     <div class="step"><div class="sn">2</div><div class="sc"><div class="formula">E₁₁ = 0 В,  E₂₂ = 20 В,  E₃₃ = 30 В</div></div></div>
-    <div class="step"><div class="sn">3</div><div class="sc"><div class="formula">35·I₁₁ − 15·I₂₂         = 0    → I₁₁ = 3I₂₂/7
+    <div class="step"><div class="sn">3</div><div class="sc"><div class="formula">35·I₁₁ − 15·I₂₂ = 0 → I₁₁ = 3I₂₂/7
 −15·I₁₁ + 30·I₂₂ − 5·I₃₃ = 20
-         −5·I₂₂ + 15·I₃₃ = 30   → I₂₂ = 3I₃₃−6
+−5·I₂₂ + 15·I₃₃ = 30 → I₂₂ = 3I₃₃−6
 
-Подстановка: 460·I₃₃ = 1130  → I₃₃ ≈ 2,457 А
+Подстановка: 460·I₃₃ = 1130 → I₃₃ ≈ 2,457 А
 I₂₂ = 3·2,457−6 = 1,370 А
 I₁₁ = 3·1,370/7 = 0,587 А</div></div></div>
     <div class="ans"><span class="al">Ответ</span><span class="av">0,59,1,37,2,46</span></div>
@@ -1262,7 +1288,7 @@ menuToggle.addEventListener('click', () => {
   sidebar.classList.toggle('hidden');
 });
 
-// Автоскрытие меню при клике на ссылку (для мобильных)
+// Автоскрытие при клике на ссылку (мобильные)
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
     if (window.innerWidth <= 992) {
@@ -1271,7 +1297,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-// Активная подсветка при скролле
+// Активная подсветка
 document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
   const taskCards = document.querySelectorAll('.task-card');
@@ -1279,8 +1305,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setActiveLink() {
     let current = '';
     taskCards.forEach(card => {
-      const cardTop = card.offsetTop;
-      if (scrollY + 120 >= cardTop) {
+      if (scrollY + 120 >= card.offsetTop) {
         current = card.getAttribute('id');
       }
     });
@@ -1297,6 +1322,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setActiveLink();
 });
 </script>
-
 </body>
 </html>
